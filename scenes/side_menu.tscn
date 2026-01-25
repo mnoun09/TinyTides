@@ -1,10 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://dulsb2ji0shqt"]
+[gd_scene load_steps=16 format=3 uid="uid://dulsb2ji0shqt"]
 
 [ext_resource type="Texture2D" uid="uid://ydy2xxwy61qi" path="res://assets/Buttons.png" id="1_85twv"]
 [ext_resource type="Script" uid="uid://c0f2l2eaqyhgi" path="res://scenes/item_slot.gd" id="2_6d5h6"]
-[ext_resource type="Texture2D" uid="uid://dxex8sdcnakt6" path="res://icon.svg" id="2_y8km0"]
+[ext_resource type="Texture2D" uid="uid://dw8hs2ysryfvo" path="res://assets/sand.png" id="3_h2t7a"]
+[ext_resource type="Texture2D" uid="uid://bqg6i1p0f4sdm" path="res://assets/blacksand.png" id="4_tx3uf"]
+[ext_resource type="Texture2D" uid="uid://c6aml3n8i8q3g" path="res://assets/coralandrock.png" id="5_jtq1t"]
+[ext_resource type="Texture2D" uid="uid://c24uif2j3612h" path="res://assets/pinkrock.png" id="6_7o1yw"]
+[ext_resource type="Texture2D" uid="uid://h3yx6ccwytug" path="res://assets/kelp.png" id="7_qlopi"]
 
 [sub_resource type="Theme" id="Theme_85twv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tae0b"]
+bg_color = Color(1, 0.88235295, 0.69411767, 0.5803922)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydyuc"]
+atlas = ExtResource("3_h2t7a")
+region = Rect2(878, 83, 170, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3krn0"]
+atlas = ExtResource("4_tx3uf")
+region = Rect2(882, 200, 170, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pbfu"]
+atlas = ExtResource("5_jtq1t")
+region = Rect2(1089, 76, 131, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v83px"]
+atlas = ExtResource("5_jtq1t")
+region = Rect2(1113, 213, 101, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap86d"]
+atlas = ExtResource("6_7o1yw")
+region = Rect2(1114, 371, 86, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6w8c"]
+atlas = ExtResource("7_qlopi")
+region = Rect2(916, 332, 69, 109)
 
 [node name="SideMenu" type="Control"]
 layout_mode = 3
@@ -60,6 +95,7 @@ custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
 script = ExtResource("2_6d5h6")
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot"]
@@ -75,7 +111,7 @@ offset_right = 80.0
 offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_y8km0")
+texture = SubResource("AtlasTexture_ydyuc")
 stretch_mode = 5
 
 [node name="ItemSlot2" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer"]
@@ -83,6 +119,7 @@ custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
 script = ExtResource("2_6d5h6")
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot2"]
@@ -98,7 +135,7 @@ offset_right = 80.0
 offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_y8km0")
+texture = SubResource("AtlasTexture_3krn0")
 stretch_mode = 5
 
 [node name="ItemSlot3" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer"]
@@ -106,6 +143,7 @@ custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
 script = ExtResource("2_6d5h6")
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot3"]
@@ -121,7 +159,7 @@ offset_right = 80.0
 offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_y8km0")
+texture = SubResource("AtlasTexture_6pbfu")
 stretch_mode = 5
 
 [node name="ItemSlot4" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer"]
@@ -129,6 +167,7 @@ custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
 script = ExtResource("2_6d5h6")
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot4"]
@@ -144,7 +183,7 @@ offset_right = 80.0
 offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_y8km0")
+texture = SubResource("AtlasTexture_v83px")
 stretch_mode = 5
 
 [node name="ItemSlot5" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer"]
@@ -152,6 +191,7 @@ custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
 script = ExtResource("2_6d5h6")
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot5"]
@@ -167,7 +207,7 @@ offset_right = 80.0
 offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_y8km0")
+texture = SubResource("AtlasTexture_ap86d")
 stretch_mode = 5
 
 [node name="ItemSlot6" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer"]
@@ -175,6 +215,7 @@ custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
 script = ExtResource("2_6d5h6")
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot6"]
@@ -190,5 +231,5 @@ offset_right = 80.0
 offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_y8km0")
+texture = SubResource("AtlasTexture_w6w8c")
 stretch_mode = 5

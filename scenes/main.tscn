@@ -1,13 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://b056onf7c73qf"]
+[gd_scene load_steps=3 format=3 uid="uid://b056onf7c73qf"]
 
 [ext_resource type="PackedScene" uid="uid://dulsb2ji0shqt" path="res://scenes/side_menu.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://b6k0beh5qh1oq" path="res://scenes/squaretank.tscn" id="2_0wfyh"]
 
 [node name="main" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1280, 720)
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1280.0
+offset_bottom = 720.0
 color = Color(0.7490196, 0.9607843, 0.9843137, 1)
 
 [node name="SideMenu" parent="." instance=ExtResource("1_o5qli")]
@@ -21,3 +22,6 @@ offset_bottom = 720.0
 grow_horizontal = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="Squaretank" parent="." instance=ExtResource("2_0wfyh")]
+position = Vector2(56, -16)

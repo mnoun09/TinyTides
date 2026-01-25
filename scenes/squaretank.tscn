@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://b6k0beh5qh1oq"]
+
+[ext_resource type="Texture2D" uid="uid://blp5it6jnqxu8" path="res://assets/squarewater.png" id="1_5oltt"]
+[ext_resource type="Texture2D" uid="uid://d35scacdmbvfy" path="res://assets/sand1.png" id="2_ar30u"]
+[ext_resource type="Texture2D" uid="uid://da8nxpf0q5yux" path="res://assets/squaretankoutline.png" id="2_ocevk"]
+[ext_resource type="Texture2D" uid="uid://djdu7bu8ecs07" path="res://assets/sand2.png" id="3_lo7gs"]
+[ext_resource type="Texture2D" uid="uid://g8ks3qv5oort" path="res://assets/sand3.png" id="4_yuafe"]
+[ext_resource type="Texture2D" uid="uid://6m0vl5f55key" path="res://assets/blackSand1.png" id="5_d3o5d"]
+[ext_resource type="Texture2D" uid="uid://cm2ltobag34ge" path="res://assets/blacksand2.png" id="6_3o242"]
+[ext_resource type="Texture2D" uid="uid://dnl1wqxpxy1d7" path="res://assets/blacksand3.png" id="7_2mjbi"]
+
+[node name="Squaretank" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Squarewater" type="Sprite2D" parent="Area2D"]
+position = Vector2(640, 360)
+texture = ExtResource("1_5oltt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(640, 360)
+polygon = PackedVector2Array(-484, -111, -484, -108.899994, -532.7, -67, -535, -67, -535, 223.09998, -532, 225.09998, -532, 227, -88, 226, -84, 226, -82, -31, -81, -31, -81, -66, -140, -109.100006, -140, -111)
+
+[node name="Sand1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("2_ar30u")
+
+[node name="Sand2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("3_lo7gs")
+
+[node name="Sand3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("4_yuafe")
+
+[node name="BlackSand1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("5_d3o5d")
+
+[node name="Blacksand2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("6_3o242")
+
+[node name="Blacksand3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("7_2mjbi")
+
+[node name="Squaretankoutline" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("2_ocevk")
