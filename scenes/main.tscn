@@ -1,23 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr4warys2nl2a"]
+[gd_scene load_steps=2 format=3 uid="uid://b056onf7c73qf"]
 
-[ext_resource type="Texture2D" uid="uid://bjrt1wsv0a1j8" path="res://assets/HomepageBg.png" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://dwm810qteh32w" path="res://scenes/UI.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dulsb2ji0shqt" path="res://scenes/side_menu.tscn" id="1_o5qli"]
 
-[node name="Node2D" type="Node2D"]
+[node name="main" type="Node2D"]
 
-[node name="HomepageBg" type="Sprite2D" parent="."]
-position = Vector2(640, 360)
-texture = ExtResource("1_o5qli")
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.7490196, 0.9607843, 0.9843137, 1)
 
-[node name="Control" parent="." instance=ExtResource("2_0wfyh")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 8.0
-offset_top = 392.0
-offset_right = 1288.0
-offset_bottom = 392.0
-grow_horizontal = 1
-grow_vertical = 1
+[node name="SideMenu" parent="." instance=ExtResource("1_o5qli")]
+custom_minimum_size = Vector2(500, 720)
+anchors_preset = 11
+anchor_left = 1.0
+offset_left = 782.0
+offset_top = -2.0
+offset_right = 1282.0
+offset_bottom = 720.0
+grow_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 4
-mouse_filter = 1

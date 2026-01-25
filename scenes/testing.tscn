@@ -1,9 +1,3 @@
 [gd_scene format=3 uid="uid://boo080a3mmpvc"]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="Button" type="Button" parent="."]
-offset_left = 528.0
-offset_top = 112.0
-offset_right = 792.0
-offset_bottom = 184.0
