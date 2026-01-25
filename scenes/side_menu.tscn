@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dulsb2ji0shqt"]
+[gd_scene load_steps=17 format=3 uid="uid://dulsb2ji0shqt"]
 
 [ext_resource type="Texture2D" uid="uid://ydy2xxwy61qi" path="res://assets/Buttons.png" id="1_85twv"]
 [ext_resource type="Script" uid="uid://c0f2l2eaqyhgi" path="res://scenes/item_slot.gd" id="2_6d5h6"]
@@ -36,6 +36,86 @@ region = Rect2(1113, 213, 101, 106)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ap86d"]
 atlas = ExtResource("6_7o1yw")
 region = Rect2(1114, 371, 86, 40)
+
+[sub_resource type="GDScript" id="GDScript_h2t7a"]
+script/source = "extends Panel
+
+var dragging = false
+var draggable = false
+var insideDropable = false
+var dropLocked = false
+var bodyRef: Node2D
+var offset: Vector2
+var initialPos: Vector2
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if draggable:
+		
+		if dragging:
+			global_position = get_global_mouse_position() - offset
+
+func _input(event):
+	if not draggable:
+		return
+	
+	if event is InputEventMouseButton  and event.button_index == MOUSE_BUTTON_LEFT:
+		
+		if event.pressed:
+			offset = get_global_mouse_position() - global_position
+			global.isDragging = true
+			print (\"clicked\")
+			dropLocked = false
+			initialPos = global_position
+			dragging = true
+			#initialPos = global_position
+			offset = get_global_mouse_position() - global_position
+			
+		else:
+			global.isDragging = false
+			dragging = false
+			var tween = get_tree().create_tween()
+			dropLocked = insideDropable
+			
+			if dropLocked and bodyRef:
+				tween.tween_property(self, \"global_position\", bodyRef.global_position, 0.2).set_ease(Tween.EASE_OUT)
+			else:
+				print (\"false\")
+				tween.tween_property(self, \"global_position\", initialPos, 0.2).set_ease(Tween.EASE_OUT)
+
+
+func _on_area_2d_mouse_entered() -> void:
+	if not global.isDragging:
+		draggable = true
+		scale = Vector2(1.01,1.01)
+	pass # Replace with function body.
+
+
+func _on_area_2d_mouse_exited() -> void:
+	if not global.isDragging and not dragging:
+		draggable = false
+		scale = Vector2(1.00,1.00)
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_entered(body: StaticBody2D) -> void:
+	if body.is_in_group(\"dropable\"):
+		print (\"inside dropable\")
+		insideDropable = true
+		bodyRef = body
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_exited(body: StaticBody2D) -> void:
+	if not body.is_in_group(\"dropable\"):
+		print (\"not inside\")
+		insideDropable = false
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w6w8c"]
 atlas = ExtResource("7_qlopi")
@@ -216,7 +296,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
-script = ExtResource("2_6d5h6")
+script = SubResource("GDScript_h2t7a")
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot6"]
 layout_mode = 1
@@ -233,3 +313,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_w6w8c")
 stretch_mode = 5
+
+[connection signal="mouse_entered" from="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot/Icon" to="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot" method="_on_icon_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot/Icon" to="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot" method="_on_icon_mouse_exited"]

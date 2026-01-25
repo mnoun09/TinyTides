@@ -48,7 +48,6 @@ theme_override_colors/font_outline_color = Color(0.5176471, 0.77254903, 0.933333
 theme_override_constants/shadow_offset_x = 15
 theme_override_constants/shadow_offset_y = 10
 theme_override_constants/outline_size = 30
-theme_override_constants/shadow_outline_size = 15
 theme_override_fonts/font = ExtResource("1_b3bc3")
 theme_override_font_sizes/font_size = 150
 text = "Tiny Tides"
