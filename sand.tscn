@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwti0q0lv6yy3"]
+
+[ext_resource type="Script" uid="uid://c310dl2nkht8o" path="res://sprite_2d.gd" id="1_45ttf"]
+[ext_resource type="Texture2D" uid="uid://dw8hs2ysryfvo" path="res://assets/sand.png" id="2_6adq2"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_45ttf")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(512, 272)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-320, 240)
+polygon = PackedVector2Array(305, -281.2, 305, -279.3, 283.7, -270, 281.40002, -270, 252.40002, -249, 250, -249, 236, -229, 232.79999, -229, 235, -224.6, 235, -220.9, 240, -217.9, 240, -216.3, 258.8, -213, 261.40002, -213, 271, -206, 271, -203.8, 307, -207.2, 326.90002, -205, 346.2, -205, 393.30005, -213, 396.80005, -213, 407.80005, -223, 409.59998, -223, 410.69995, -228, 412.30005, -228, 411, -237.3, 411, -241, 404, -246.1, 404, -247.4, 377.3, -257, 372.7, -257, 344, -276.1, 344, -277.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(-320, 240)
+texture = ExtResource("2_6adq2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

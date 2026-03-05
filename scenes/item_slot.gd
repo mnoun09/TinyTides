@@ -21,14 +21,15 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 
 func _on_icon_mouse_entered() -> void:
 	if not global.is_dragging:
-		#draggable = true
+		draggable = true
 		scale = Vector2(1.05, 1.05)
 
 func _on_icon_mouse_exited() -> void:
 	if not global.is_dragging:
-		#draggable = false
+		draggable = false
 		scale = Vector2(1.0, 1.00)
 	pass # Replace with function body.
 	
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	return true
+	
