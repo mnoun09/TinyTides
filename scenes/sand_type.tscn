@@ -1,0 +1,135 @@
+[gd_scene load_steps=12 format=3 uid="uid://kqpbxcps0ifa"]
+
+[ext_resource type="Script" uid="uid://cfyy6wgnuipjf" path="res://scenes/sand_type.gd" id="1_6pbrs"]
+[ext_resource type="Texture2D" uid="uid://ydy2xxwy61qi" path="res://assets/Buttons.png" id="1_gik6v"]
+[ext_resource type="Texture2D" uid="uid://blp5it6jnqxu8" path="res://assets/squarewater.png" id="2_x3cdn"]
+[ext_resource type="Texture2D" uid="uid://d35scacdmbvfy" path="res://assets/sand1.png" id="3_6pbrs"]
+[ext_resource type="Texture2D" uid="uid://6m0vl5f55key" path="res://assets/blackSand1.png" id="4_cos5i"]
+[ext_resource type="Texture2D" uid="uid://da8nxpf0q5yux" path="res://assets/squaretankoutline.png" id="5_uxkay"]
+[ext_resource type="Texture2D" uid="uid://djdu7bu8ecs07" path="res://assets/sand2.png" id="6_ayq7f"]
+[ext_resource type="Texture2D" uid="uid://cm2ltobag34ge" path="res://assets/blacksand2.png" id="7_lsxip"]
+[ext_resource type="Texture2D" uid="uid://g8ks3qv5oort" path="res://assets/sand3.png" id="8_m6dn2"]
+[ext_resource type="Texture2D" uid="uid://dnl1wqxpxy1d7" path="res://assets/blacksand3.png" id="9_oridf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gik6v"]
+bg_color = Color(1, 0.88235295, 0.69411767, 0.38039216)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="sandType" type="Node2D"]
+script = ExtResource("1_6pbrs")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(900, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_gik6v")
+region_rect = Rect2(549, 285, 462, 205)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 75
+
+[node name="Button" type="Button" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_gik6v")
+
+[node name="Squarewater" type="Sprite2D" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button"]
+position = Vector2(182, 81)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_x3cdn")
+
+[node name="Sand1" type="Sprite2D" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater"]
+visible = false
+texture = ExtResource("3_6pbrs")
+
+[node name="BlackSand1" type="Sprite2D" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater"]
+visible = false
+texture = ExtResource("4_cos5i")
+
+[node name="Squaretankoutline" type="Sprite2D" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater"]
+texture = ExtResource("5_uxkay")
+
+[node name="Button2" type="Button" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_gik6v")
+
+[node name="Squarewater2" type="Sprite2D" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2"]
+position = Vector2(182.5, 80)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_x3cdn")
+
+[node name="Sand2" type="Sprite2D" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2"]
+visible = false
+position = Vector2(4, -4)
+texture = ExtResource("6_ayq7f")
+
+[node name="Blacksand2" type="Sprite2D" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2"]
+visible = false
+position = Vector2(4, -4)
+texture = ExtResource("7_lsxip")
+
+[node name="Squaretankoutline" type="Sprite2D" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2"]
+texture = ExtResource("5_uxkay")
+
+[node name="Button3" type="Button" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_gik6v")
+
+[node name="Squarewater3" type="Sprite2D" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3"]
+position = Vector2(182.99997, 79.99999)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_x3cdn")
+
+[node name="Sand3" type="Sprite2D" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3"]
+visible = false
+texture = ExtResource("8_m6dn2")
+
+[node name="Blacksand3" type="Sprite2D" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3"]
+visible = false
+texture = ExtResource("9_oridf")
+
+[node name="Squaretankoutline" type="Sprite2D" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3"]
+texture = ExtResource("5_uxkay")
+
+[connection signal="pressed" from="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]

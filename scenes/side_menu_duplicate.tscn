@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://biv70mdpab1n0"]
+[gd_scene load_steps=15 format=3 uid="uid://biv70mdpab1n0"]
 
 [ext_resource type="Texture2D" uid="uid://ydy2xxwy61qi" path="res://assets/Buttons.png" id="1_n0jiv"]
 [ext_resource type="Script" uid="uid://c0f2l2eaqyhgi" path="res://scenes/item_slot.gd" id="2_ln6fa"]
-[ext_resource type="PackedScene" uid="uid://bnglgfo7o7oou" path="res://node_2d.tscn" id="2_n0jiv"]
 [ext_resource type="Texture2D" uid="uid://bqg6i1p0f4sdm" path="res://assets/blacksand.png" id="4_3614n"]
 [ext_resource type="Texture2D" uid="uid://c6aml3n8i8q3g" path="res://assets/coralandrock.png" id="5_rrdhj"]
 [ext_resource type="Texture2D" uid="uid://c24uif2j3612h" path="res://assets/pinkrock.png" id="6_as360"]
@@ -172,9 +171,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
-
-[node name="Node2D" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot" instance=ExtResource("2_n0jiv")]
-position = Vector2(-422, -178)
 
 [node name="ItemSlot2" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer"]
 custom_minimum_size = Vector2(180, 180)

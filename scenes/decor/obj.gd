@@ -1,11 +1,5 @@
-extends Node
+extends Node2D
 
-signal sandChosen(type)
-
-var sandType
-var sandNum
-var isDragging = false
-var is_dragging = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

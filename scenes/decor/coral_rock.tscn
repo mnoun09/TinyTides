@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu5xwknjhtynx"]
+
+[ext_resource type="Texture2D" uid="uid://c6aml3n8i8q3g" path="res://assets/coralandrock.png" id="1_2j76y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_em6bv"]
+atlas = ExtResource("1_2j76y")
+region = Rect2(1089, 76, 131, 103)
+
+[node name="coralRock" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="." groups=["coralRock"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = SubResource("AtlasTexture_em6bv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-34.5, -51.5, -39.5, -46.3, -39.5, -36.8, -40, -36.5, -43.6, -36.5, -49.6, -27.5, -51.9, -27.5, -50.5, -19.2, -50.5, -14.700001, -42.7, -6.9000015, -65.5, 23.5, -65.5, 42, -62.5, 44.4, -62.5, 45.9, -54.5, 48.9, -54.5, 50.5, -10.5, 49.5, -5.200001, 49.5, -2.7000008, 51.5, 24.5, 51.5, 31.5, 45.4, 42.5, 42.5, 46.1, 42.5, 53.1, 37.5, 55.4, 37.5, 65.399994, 25.5, 65.5, -0.5, 51.5, -15.400002, 51.5, -16.8, 20.900002, -30.5, 14.699997, -30.5, 12.5, -35, 12.5, -37.4, 6.5, -42.5, 6.5, -44.5, -8.400002, -44.5, -12.5, -51.2)

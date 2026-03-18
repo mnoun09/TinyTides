@@ -1,18 +1,22 @@
-[gd_scene load_steps=18 format=3 uid="uid://dulsb2ji0shqt"]
+[gd_scene load_steps=22 format=3 uid="uid://dulsb2ji0shqt"]
 
 [ext_resource type="Texture2D" uid="uid://ydy2xxwy61qi" path="res://assets/Buttons.png" id="1_85twv"]
 [ext_resource type="Script" uid="uid://c0f2l2eaqyhgi" path="res://scenes/item_slot.gd" id="2_6d5h6"]
 [ext_resource type="Texture2D" uid="uid://dw8hs2ysryfvo" path="res://assets/sand.png" id="3_h2t7a"]
-[ext_resource type="PackedScene" uid="uid://bwti0q0lv6yy3" path="res://sand.tscn" id="3_tx3uf"]
+[ext_resource type="PackedScene" uid="uid://bwti0q0lv6yy3" path="res://scenes/decor/sand.tscn" id="3_tx3uf"]
 [ext_resource type="Texture2D" uid="uid://bqg6i1p0f4sdm" path="res://assets/blacksand.png" id="4_tx3uf"]
 [ext_resource type="Texture2D" uid="uid://c6aml3n8i8q3g" path="res://assets/coralandrock.png" id="5_jtq1t"]
+[ext_resource type="PackedScene" uid="uid://bplr3l3s5ad1a" path="res://scenes/decor/blackSand.tscn" id="5_tx3uf"]
 [ext_resource type="Texture2D" uid="uid://c24uif2j3612h" path="res://assets/pinkrock.png" id="6_7o1yw"]
+[ext_resource type="PackedScene" uid="uid://cu5xwknjhtynx" path="res://scenes/decor/coral_rock.tscn" id="7_7o1yw"]
 [ext_resource type="Texture2D" uid="uid://h3yx6ccwytug" path="res://assets/kelp.png" id="7_qlopi"]
+[ext_resource type="PackedScene" uid="uid://cgwlk2sqpasxk" path="res://scenes/decor/coral.tscn" id="9_qlopi"]
+[ext_resource type="PackedScene" uid="uid://bxicnmp1f8ox5" path="res://scenes/decor/pinkRock.tscn" id="10_tae0b"]
 
 [sub_resource type="Theme" id="Theme_85twv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tae0b"]
-bg_color = Color(1, 0.88235295, 0.69411767, 0.5803922)
+bg_color = Color(1, 0.88235295, 0.69411767, 0.38039216)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -207,7 +211,11 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
 script = ExtResource("2_6d5h6")
 
+[node name="BlackSand" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot2" instance=ExtResource("5_tx3uf")]
+position = Vector2(-426, -178)
+
 [node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot2"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -231,7 +239,11 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
 script = ExtResource("2_6d5h6")
 
+[node name="coralRock" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot3" instance=ExtResource("7_7o1yw")]
+position = Vector2(90, 90)
+
 [node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot3"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -255,7 +267,11 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
 script = ExtResource("2_6d5h6")
 
+[node name="coral" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot4" instance=ExtResource("9_qlopi")]
+position = Vector2(88, 95)
+
 [node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot4"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -279,7 +295,11 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
 script = ExtResource("2_6d5h6")
 
+[node name="pinkRock" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot5" instance=ExtResource("10_tae0b")]
+position = Vector2(90, 94)
+
 [node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot5"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -321,3 +341,5 @@ stretch_mode = 5
 
 [connection signal="mouse_entered" from="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot/Icon" to="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot" method="_on_icon_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot/Icon" to="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot" method="_on_icon_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot2/Icon" to="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot2" method="_on_icon_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot2/Icon" to="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot" method="_on_icon_mouse_exited"]

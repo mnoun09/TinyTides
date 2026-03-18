@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bplr3l3s5ad1a"]
+
+[ext_resource type="Script" uid="uid://c343surb1l437" path="res://black_sand.gd" id="1_kbepw"]
+[ext_resource type="Texture2D" uid="uid://bqg6i1p0f4sdm" path="res://assets/blacksand.png" id="2_kbepw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oun24"]
+atlas = ExtResource("2_kbepw")
+region = Rect2(882, 200, 170, 69)
+
+[node name="Node2D" type="Node2D" groups=["blackSand"]]
+script = ExtResource("1_kbepw")
+
+[node name="Area2D" type="Area2D" parent="." groups=["blackSand"]]
+position = Vector2(512, 272)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-320, 240)
+polygon = PackedVector2Array(305, -281.2, 305, -279.3, 283.7, -270, 281.40002, -270, 252.40002, -249, 250, -249, 236, -229, 232.79999, -229, 235, -224.6, 235, -220.9, 240, -217.9, 240, -216.3, 258.8, -213, 261.40002, -213, 271, -206, 271, -203.8, 307, -207.2, 326.90002, -205, 346.2, -205, 393.30005, -213, 396.80005, -213, 407.80005, -223, 409.59998, -223, 410.69995, -228, 412.30005, -228, 411, -237.3, 411, -241, 404, -246.1, 404, -247.4, 377.3, -257, 372.7, -257, 344, -276.1, 344, -277.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(4, -2)
+texture = SubResource("AtlasTexture_oun24")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

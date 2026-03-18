@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6b3gy3070y6n"]
+
+[ext_resource type="Texture2D" uid="uid://c24uif2j3612h" path="res://assets/pinkrock.png" id="1_7qfp1"]
+[ext_resource type="Script" uid="uid://juvverusicyj" path="res://obj.gd" id="2_lmhvq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmhvq"]
+atlas = ExtResource("1_7qfp1")
+region = Rect2(1114, 371, 86, 40)
+
+[node name="pinkRockDraggable" type="Node2D"]
+
+[node name="obj" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_lmhvq")
+script = ExtResource("2_lmhvq")
+
+[node name="Button" type="Button" parent="obj"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -48.0
+offset_top = -24.0
+offset_right = 48.0
+offset_bottom = 24.0
+
+[connection signal="button_down" from="obj/Button" to="obj" method="_on_button_button_down"]
+[connection signal="button_up" from="obj/Button" to="obj" method="_on_button_button_up"]

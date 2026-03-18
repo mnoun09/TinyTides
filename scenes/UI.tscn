@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dwm810qteh32w"]
 
-[ext_resource type="FontFile" uid="uid://bwip0ku1y01nd" path="res://starbim/Starbim.otf" id="1_b3bc3"]
+[ext_resource type="FontFile" uid="uid://bwip0ku1y01nd" path="res://fonts/starbim/Starbim.otf" id="1_b3bc3"]
 [ext_resource type="Script" uid="uid://cuern8m8w4x3g" path="res://scenes/main_menu.gd" id="1_ro3t7"]
 [ext_resource type="Texture2D" uid="uid://ydy2xxwy61qi" path="res://assets/Buttons.png" id="3_5en4g"]
 [ext_resource type="FontFile" uid="uid://camn4jqpd4jov" path="res://fonts/dynapuff.condensed-medium.ttf" id="3_ua6yw"]

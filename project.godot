@@ -31,6 +31,14 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[global_group]
+
+sand=""
+blackSand=""
+coralRock=""
+coral=""
+pinkRock=""
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

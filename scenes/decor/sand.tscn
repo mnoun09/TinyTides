@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwti0q0lv6yy3"]
 
-[ext_resource type="Script" uid="uid://c310dl2nkht8o" path="res://sprite_2d.gd" id="1_45ttf"]
+[ext_resource type="Script" uid="uid://ddtx21h66v8hu" path="res://sand.gd" id="1_45ttf"]
 [ext_resource type="Texture2D" uid="uid://dw8hs2ysryfvo" path="res://assets/sand.png" id="2_6adq2"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" groups=["sand"]]
 script = ExtResource("1_45ttf")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["sand"]]
 position = Vector2(512, 272)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]

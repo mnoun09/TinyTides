@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cro7j53u2lo16"]
+
+[ext_resource type="Texture2D" uid="uid://c6aml3n8i8q3g" path="res://assets/coralandrock.png" id="1_nyu3s"]
+[ext_resource type="Script" uid="uid://juvverusicyj" path="res://obj.gd" id="2_h5aqu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bop02"]
+atlas = ExtResource("1_nyu3s")
+region = Rect2(1089, 76, 131, 103)
+
+[node name="coralRockDraggable" type="Node2D"]
+
+[node name="obj" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_bop02")
+script = ExtResource("2_h5aqu")
+
+[node name="Button" type="Button" parent="obj"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -64.0
+offset_top = -48.0
+offset_right = 64.0
+offset_bottom = 48.0
+
+[connection signal="button_down" from="obj/Button" to="obj" method="_on_button_button_down"]
+[connection signal="button_up" from="obj/Button" to="obj" method="_on_button_button_up"]

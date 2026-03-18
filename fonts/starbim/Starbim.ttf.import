@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bwip0ku1y01nd"
-path="res://.godot/imported/Starbim.otf-298e0310ee26830888f7759c2ab011df.fontdata"
+uid="uid://bckxiqelvb7bl"
+path="res://.godot/imported/Starbim.ttf-9963d6d1e166b71539c39a6f45453004.fontdata"
 
 [deps]
 
-source_file="res://starbim/Starbim.otf"
-dest_files=["res://.godot/imported/Starbim.otf-298e0310ee26830888f7759c2ab011df.fontdata"]
+source_file="res://fonts/starbim/Starbim.ttf"
+dest_files=["res://.godot/imported/Starbim.ttf-9963d6d1e166b71539c39a6f45453004.fontdata"]
 
 [params]
 

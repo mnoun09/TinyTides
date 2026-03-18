@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxicnmp1f8ox5"]
+
+[ext_resource type="Texture2D" uid="uid://c24uif2j3612h" path="res://assets/pinkrock.png" id="1_5abbk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x63fb"]
+atlas = ExtResource("1_5abbk")
+region = Rect2(1114, 371, 86, 40)
+
+[node name="pinkRock" type="Node2D"]
+scale = Vector2(1.5, 1.5)
+
+[node name="Area2D" type="Area2D" parent="." groups=["pinkRock"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+scale = Vector2(1, 0.9922088)
+polygon = PackedVector2Array(34, -19.9, 31.599998, -20, -20.9, -20, -30.4, -18, -33.9, -18, -42.9, -8, -43, 10.5, -40, 12.900002, -40, 14.400002, -24.2, 20, 30.199997, 20, 37.699997, 14, 39.199997, 14, 43, 6.3999996, 43, -12.4, 34, -18.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = SubResource("AtlasTexture_x63fb")
