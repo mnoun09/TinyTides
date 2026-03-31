@@ -1,10 +1,12 @@
 extends Area2D
 
 @onready var tank = $"."
+var remove = false
 const sandOptions = preload("res://scenes/sand_type.tscn")
 const coral = preload("res://scenes/decor/coral_draggable.tscn")
 const coralRock = preload("res://scenes/decor/coral_rock_draggable.tscn")
 const pinkRock = preload("res://scenes/decor/pinkRock_draggable.tscn")
+const kelp = preload("res://scenes/decor/kelp_draggable.tscn")
 var spawned = false
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
@@ -35,8 +37,10 @@ func _on_area_entered(area: Area2D) -> void:
 		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Sand2".visible = true
 		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3/Sand3".visible = true
 		print ("sand entered")
+		sandMenuWhite()
 	elif (area.is_in_group("blackSand")):
 		print ("black sand entered")
+		sandMenuBlack()
 		global.sandType = "black"
 		$"../sandType".visible = true
 		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/BlackSand1".visible = true
@@ -51,6 +55,9 @@ func _on_area_entered(area: Area2D) -> void:
 	elif (area.is_in_group("pinkRock")):
 		print ("pinkRock entered")
 		spawnPinkRock()
+	elif (area.is_in_group("kelp")):
+		print ("kelp entered")
+		spawnKelp()
 	
 func spawnCoralRock():
 	var coralRock_instance = coralRock.instantiate()
@@ -66,6 +73,11 @@ func spawnPinkRock():
 	var pinkRock_instance = pinkRock.instantiate()
 	pinkRock_instance.position = (Vector2i(330, 390))
 	add_child(pinkRock_instance)
+	
+func spawnKelp():
+	var kelp_instance = kelp.instantiate()
+	kelp_instance.position = (Vector2i(330, 390))
+	add_child(kelp_instance)
 	
 func noSandVisible():
 	$Sand1.visible = false
@@ -98,3 +110,36 @@ func _on_button_3_pressed() -> void:
 		$Sand3.visible = true
 	elif global.sandType == "black":
 		$BlackSand3.visible = true
+
+
+func _on_area_exited(area: Area2D) -> void:
+	print ("area exited")
+	pass # Replace with function body.
+
+
+func _on_body_entered(body: Node2D) -> void:
+	print ("body entered")
+	pass # Replace with function body.
+	
+func sandMenuWhite ():
+	$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/Sand1".visible = true
+	$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Sand2".visible = true
+	$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2".visible = true
+	$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/BlackSand1".visible = false
+	$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2".visible = false
+	$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3/Blacksand3".visible = false
+	
+func sandMenuBlack ():
+	$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/BlackSand1".visible = true
+	$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2".visible = true
+	$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3/Blacksand3".visible = true
+	$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/Sand1".visible = false
+	$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Sand2".visible = false
+	$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2".visible = false
+
+func _on_remove_button_pressed() -> void:
+	if remove == false:
+		remove = true
+		queue_free()
+	else:
+		remove = false

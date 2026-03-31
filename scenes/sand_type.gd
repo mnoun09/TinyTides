@@ -7,7 +7,13 @@ func _ready() -> void:
 		$MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/Sand1.visible = true
 		$MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Sand2.visible = true
 		$MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3/Sand3.visible = true
+		$MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/BlackSand1.visible = false
+		$MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2.visible = false
+		$MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3/Blacksand3.visible = false
 	elif (global.sandType == "black"):
+		$MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/Sand1.visible = false
+		$MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Sand2.visible = false
+		$MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3/Sand3.visible = false
 		$MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/BlackSand1.visible = true
 		$MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2.visible = true
 		$MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3/Blacksand3.visible = true

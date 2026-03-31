@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b056onf7c73qf"]
+[gd_scene load_steps=8 format=3 uid="uid://b056onf7c73qf"]
 
 [ext_resource type="PackedScene" uid="uid://dulsb2ji0shqt" path="res://scenes/side_menu.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://b6k0beh5qh1oq" path="res://scenes/squaretank.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bu8gh7lijx58i" path="res://drag_test.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://kqpbxcps0ifa" path="res://scenes/sand_type.tscn" id="4_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://c24uif2j3612h" path="res://assets/pinkrock.png" id="5_tbgi4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tefeu"]
+bg_color = Color(0.87912315, 0, 0.22883621, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6xl0"]
+atlas = ExtResource("5_tbgi4")
+region = Rect2(1114, 371, 86, 40)
 
 [node name="main" type="Node2D"]
 
@@ -28,6 +36,18 @@ size_flags_vertical = 4
 [node name="Squaretank" parent="." instance=ExtResource("2_0wfyh")]
 position = Vector2(56, -16)
 
+[node name="removeButton" type="Button" parent="Squaretank"]
+offset_left = -32.0
+offset_top = 640.0
+offset_right = 64.0
+offset_bottom = 720.0
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tefeu")
+toggle_mode = true
+
+[node name="temp" type="Sprite2D" parent="Squaretank/removeButton"]
+position = Vector2(48, 40)
+texture = SubResource("AtlasTexture_o6xl0")
+
 [node name="dragTest" parent="." instance=ExtResource("3_sugp2")]
 visible = false
 position = Vector2(160, 184)
@@ -35,6 +55,7 @@ position = Vector2(160, 184)
 [node name="sandType" parent="." instance=ExtResource("4_jyhfs")]
 visible = false
 
+[connection signal="pressed" from="Squaretank/removeButton" to="Squaretank" method="_on_remove_button_pressed"]
 [connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button" to="Squaretank" method="_on_button_pressed"]
 [connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2" to="Squaretank" method="_on_button_2_pressed"]
 [connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3" to="Squaretank" method="_on_button_3_pressed"]

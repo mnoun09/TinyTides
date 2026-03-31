@@ -17,7 +17,7 @@ script = ExtResource("1_lo7gs")
 position = Vector2(640, 360)
 texture = ExtResource("1_5oltt")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["waterZone"]]
 position = Vector2(640, 360)
 polygon = PackedVector2Array(-484, -111, -484, -108.899994, -532.7, -67, -535, -67, -535, 223.09998, -532, 225.09998, -532, 227, -88, 226, -84, 226, -82, -31, -81, -31, -81, -66, -140, -109.100006, -140, -111)
 
@@ -56,3 +56,5 @@ position = Vector2(640, 360)
 texture = ExtResource("2_ocevk")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
