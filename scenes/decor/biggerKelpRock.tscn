@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://ojxysf86sxp0"]
+
+[ext_resource type="Texture2D" uid="uid://c4hcwa5gbbguf" path="res://scenes/decor/biggerKelpRock.png" id="1_is3ox"]
+[ext_resource type="Texture2D" uid="uid://cljg48a8svpq6" path="res://scenes/decor/biggerKelpRock1.png" id="2_glr8o"]
+[ext_resource type="Texture2D" uid="uid://bkt5jq0e6yimr" path="res://scenes/decor/biggerKelpRock2.png" id="3_xxyha"]
+[ext_resource type="Texture2D" uid="uid://dphd3krphnl78" path="res://scenes/decor/biggerKelpRock3.png" id="4_87rb8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jkr6r"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_is3ox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_glr8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xxyha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_87rb8")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="biggerKelpRock" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="." groups=["biggerKelpRock"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-536, -320)
+polygon = PackedVector2Array(545, 224.29999, 535, 222.59998, 535, 224.90002, 531.5, 227, 529.1, 227, 519.1, 238, 517.69995, 238, 508, 259.59998, 508, 262.5, 502.90002, 264, 500.59998, 264, 496.59998, 275, 495.40002, 275, 492, 290.8, 492, 302.40002, 499, 317.3, 499, 319.8, 504.5, 325.3, 500.30005, 329, 498.59998, 329, 496.59998, 335, 495, 335, 495, 344.59998, 500, 351.59998, 500, 353.40002, 506.59998, 356, 517.4, 356, 523, 360, 557.6, 360, 559.30005, 359.90002, 567.5, 360, 578.4, 355, 581.1, 355, 587, 345.59998, 587, 336.40002, 584, 331.40002, 584, 328.8, 577.19995, 325, 585.1, 311, 586.6, 311, 589, 301.2, 589, 286.40002, 592.1, 281, 593.19995, 281, 594.30005, 278.90002, 588.1, 269, 579.5, 269, 558.69995, 278.90002, 558, 274.7, 558, 269.59998, 547.30005, 245, 548, 235.09998, 548, 230.29999, 545, 226.29999)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-538, -318)
+sprite_frames = SubResource("SpriteFrames_jkr6r")
+animation = &"new_animation"
+frame = 3
+
+[node name="BiggerKelpRock3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-536, -320)
+texture = ExtResource("4_87rb8")

@@ -9,7 +9,7 @@ region = Rect2(1089, 76, 131, 103)
 
 [node name="coralRockDraggable" type="Node2D"]
 
-[node name="obj" type="Sprite2D" parent="."]
+[node name="obj" type="Sprite2D" parent="." groups=["coralRock", "draggable"]]
 texture = SubResource("AtlasTexture_bop02")
 script = ExtResource("2_h5aqu")
 

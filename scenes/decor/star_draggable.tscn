@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://4cwbijtd8ckm"]
+
+[ext_resource type="Texture2D" uid="uid://ctujvs6cotrek" path="res://scenes/decor/stars.png" id="1_57d73"]
+[ext_resource type="Script" uid="uid://juvverusicyj" path="res://obj.gd" id="2_xfni2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11d7h"]
+atlas = ExtResource("1_57d73")
+region = Rect2(908, 511, 94, 72)
+
+[node name="starDraggable" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_11d7h")
+
+[node name="obj" type="Sprite2D" parent="." groups=["draggable", "stars"]]
+script = ExtResource("2_xfni2")
+
+[node name="Button" type="Button" parent="obj"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -48.0
+offset_top = -40.0
+offset_right = 48.0
+offset_bottom = 40.0
+
+[connection signal="button_down" from="obj/Button" to="obj" method="_on_button_button_down"]
+[connection signal="button_up" from="obj/Button" to="obj" method="_on_button_button_up"]

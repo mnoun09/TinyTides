@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0pocgxa6tcps"]
+
+[ext_resource type="Texture2D" uid="uid://bln3np5qomj3" path="res://scenes/decor/kelpRock1.png" id="1_52fq6"]
+[ext_resource type="Texture2D" uid="uid://ds2onpfhghqc8" path="res://scenes/decor/kelpRock.png" id="2_i0kuy"]
+[ext_resource type="Texture2D" uid="uid://c54fo7ja7k5tr" path="res://scenes/decor/kelpRock2.png" id="3_ag7xi"]
+[ext_resource type="Texture2D" uid="uid://dj10umum06kob" path="res://scenes/decor/kelpRock3.png" id="4_bwoji"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eh3pw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_52fq6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i0kuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_52fq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ag7xi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bwoji")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="kelp_rock" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="." groups=["kelpRock"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-507, -161)
+polygon = PackedVector2Array(505, 89.600006, 505, 91.5, 503.69995, 92, 500.19995, 92, 493.19995, 99, 491.69995, 99, 485, 113.600006, 485, 116.600006, 481.5, 118, 478.80005, 118, 474.90002, 125, 472.80005, 125, 475, 153.20001, 475, 157.5, 480, 167.5, 480, 169.70001, 490.30005, 182.09998, 487.59998, 189, 485.59998, 189, 488, 202.40002, 488, 205.29999, 499, 210.20001, 499, 212, 516.4, 212, 529.4, 207, 532, 207, 536, 202, 537.6, 202, 539.5, 194, 541.6, 194, 539, 184, 539, 179.90002, 536, 177.90002, 536, 176.29999, 545.30005, 156, 547, 156, 547, 145.5, 542.4, 137.4, 545.5, 127, 547.6, 127, 544, 114, 544, 111, 532.6, 103, 525.1, 103, 520, 94.5, 520, 92.29999)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-507, -161)
+sprite_frames = SubResource("SpriteFrames_eh3pw")

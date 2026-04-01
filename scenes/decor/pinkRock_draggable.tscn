@@ -9,7 +9,7 @@ region = Rect2(1114, 371, 86, 40)
 
 [node name="pinkRockDraggable" type="Node2D"]
 
-[node name="obj" type="Sprite2D" parent="."]
+[node name="obj" type="Sprite2D" parent="." groups=["draggable", "pinkRock"]]
 texture = SubResource("AtlasTexture_lmhvq")
 script = ExtResource("2_lmhvq")
 

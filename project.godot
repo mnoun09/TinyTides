@@ -40,6 +40,11 @@ coral=""
 pinkRock=""
 waterZone=""
 kelp=""
+deleteZone=""
+draggable=""
+kelpRock=""
+biggerKelpRock=""
+stars=""
 
 [rendering]
 

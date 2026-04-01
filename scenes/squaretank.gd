@@ -1,12 +1,13 @@
 extends Area2D
 
 @onready var tank = $"."
-var remove = false
 const sandOptions = preload("res://scenes/sand_type.tscn")
 const coral = preload("res://scenes/decor/coral_draggable.tscn")
 const coralRock = preload("res://scenes/decor/coral_rock_draggable.tscn")
 const pinkRock = preload("res://scenes/decor/pinkRock_draggable.tscn")
 const kelp = preload("res://scenes/decor/kelp_draggable.tscn")
+const kelpRock = preload("res://scenes/decor/kelpRock_draggable.tscn")
+const biggerKelpRock = preload("res://scenes/decor/biggerKelpRock_draggable.tscn")
 var spawned = false
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
@@ -58,6 +59,10 @@ func _on_area_entered(area: Area2D) -> void:
 	elif (area.is_in_group("kelp")):
 		print ("kelp entered")
 		spawnKelp()
+	elif (area.is_in_group("kelpRock")):
+		print ("kelpRock entered")
+	elif (area.is_in_group("biggerKelpRock")):
+		print ("biggerKelpRock entered")
 	
 func spawnCoralRock():
 	var coralRock_instance = coralRock.instantiate()
@@ -78,6 +83,16 @@ func spawnKelp():
 	var kelp_instance = kelp.instantiate()
 	kelp_instance.position = (Vector2i(330, 390))
 	add_child(kelp_instance)
+	
+func spawnKelpRock():
+	var kelpRock_instance = kelpRock.instantiate()
+	kelpRock_instance.position = (Vector2i(330, 390))
+	add_child(kelpRock_instance)
+	
+func spawnBiggerKelpRock():
+	var biggerKelpRock_instance = biggerKelpRock.instantiate()
+	biggerKelpRock_instance.position = (Vector2i(330, 390))
+	add_child(biggerKelpRock_instance)
 	
 func noSandVisible():
 	$Sand1.visible = false
@@ -138,8 +153,7 @@ func sandMenuBlack ():
 	$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2".visible = false
 
 func _on_remove_button_pressed() -> void:
-	if remove == false:
-		remove = true
-		queue_free()
+	if global.remove == false:
+		global.remove = true
 	else:
-		remove = false
+		global.remove = false

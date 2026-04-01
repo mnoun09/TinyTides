@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce3q6skvcvchr"]
+
+[ext_resource type="Texture2D" uid="uid://ctujvs6cotrek" path="res://scenes/decor/stars.png" id="1_pbtkt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owujv"]
+atlas = ExtResource("1_pbtkt")
+region = Rect2(908, 511, 94, 72)
+
+[node name="stars" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="." groups=["stars"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = SubResource("AtlasTexture_owujv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-10, -36, -30, -36, -33.2, -31.9, -43.8, -32, -46.8, -29, -47, -10.299999, -46.9, -9.4, -47, 3.2999992, -46, 4.5999985, -46, 6.200001, -40.5, 9, -29.5, 9, -23.6, 6, -11.599998, 14, -6.299999, 14, -1.2999992, 10, 0.79999924, 10, 2, -2.9000015, 2, -4, 4.700001, -6, 6.5, -6, 8.5, -13, 11.200001, -13, 6, -23.5, 6, -25.4, -0.5999985, -28, -5.9000015, -28, -10, -34.7)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(36, -6.799999, 24, -8.299999, 24, -6.200001, 17, -2.2000008, 17, -0.9000015, 6.799999, 0, 3.9000015, 0, -0.099998474, 6, -3.0999985, 6, 3.5, 20.5, 2.5, 24, -0.20000076, 24, 4, 32.4, 4, 34.199997, 7.5, 36, 21.900002, 36, 25.300003, 34.1, 27.199997, 36, 47, 36, 47, 4.5999985, 42.6, 2, 40.1, 2, 36, -4.700001)
