@@ -1,7 +1,8 @@
 extends Sprite2D
 var dragging = false
 var offSet = Vector2i.ZERO
-
+var rotating = false
+var rotationSpeed = 0.9
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,13 +12,24 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if dragging:
 		global_position = get_global_mouse_position() - offSet
-
+	elif rotating:
+		if global.rotate:
+			rotate(rotationSpeed * delta)
+		elif global.rotateccw:
+			rotate(-rotationSpeed * delta)
 
 func _on_button_button_down() -> void:
-	
 	if global.remove:
 		print ("remove")
 		queue_free()
+	elif global.rotate:
+		print ("rotate")
+		rotating = true
+	elif global.rotateccw:
+		print ("ccw")
+		rotating = true
+	elif global.flip:
+		flip_h = !flip_h
 	else:
 		dragging = true
 		if is_in_group("coral"):
@@ -40,3 +52,4 @@ func _on_button_button_down() -> void:
 func _on_button_button_up() -> void:
 	dragging = false
 	global.draggingItem = null
+	rotating = false

@@ -1,15 +1,5 @@
-extends Node
+extends Node2D
 
-signal sandChosen(type)
-var draggingItem
-var remove = false
-var rotate = false
-var rotateccw = false
-var flip = false
-var sandType
-var sandNum
-var isDragging = false
-var is_dragging = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,3 +9,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_button_pressed() -> void:
+	global.rotate = !global.rotate
+	print (global.rotate)

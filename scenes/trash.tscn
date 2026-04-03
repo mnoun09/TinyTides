@@ -1,11 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ix8rqonb8hcv"]
+[gd_scene load_steps=11 format=3 uid="uid://ix8rqonb8hcv"]
 
 [ext_resource type="Script" uid="uid://csbixd4g6l2fc" path="res://trash.gd" id="1_exrr5"]
 [ext_resource type="Texture2D" uid="uid://duvdhq4r7fouo" path="res://scenes/decor/trashClosed.png" id="2_2cq4d"]
 [ext_resource type="Texture2D" uid="uid://27jpukt4qc5c" path="res://scenes/decor/trashOpen.png" id="3_w6jqc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_24v10"]
-size = Vector2(144, 160)
+[ext_resource type="Texture2D" uid="uid://ckjt4uij45gvc" path="res://scenes/decor/redX.png" id="4_24v10"]
+[ext_resource type="Texture2D" uid="uid://bxoc57ulgngix" path="res://scenes/decor/lighterX.png" id="5_2g7r5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2g7r5"]
 animations = [{
@@ -26,19 +25,37 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
+atlas = ExtResource("4_24v10")
+region = Rect2(23, 662, 36, 35)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4sf1q"]
+texture = SubResource("AtlasTexture_85g3d")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
+atlas = ExtResource("5_2g7r5")
+region = Rect2(23, 662, 36, 35)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r3mh6"]
+texture = SubResource("AtlasTexture_ya4ey")
+
 [node name="trash" type="Node2D"]
 script = ExtResource("1_exrr5")
-
-[node name="Area2D" type="Area2D" parent="." groups=["deleteZone"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(8, -16)
-shape = SubResource("RectangleShape2D_24v10")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-56, -280)
 sprite_frames = SubResource("SpriteFrames_2g7r5")
 animation = &"closed"
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[node name="removeButton" type="Button" parent="."]
+offset_left = -18.0
+offset_top = -20.0
+offset_right = 26.0
+offset_bottom = 23.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_4sf1q")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_4sf1q")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r3mh6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_r3mh6")
+toggle_mode = true
+
+[connection signal="pressed" from="removeButton" to="." method="_on_remove_button_pressed"]

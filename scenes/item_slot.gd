@@ -1,6 +1,7 @@
 extends Panel
 
 @onready var icon: TextureRect = $Icon
+
 var draggable = false
 var is_inside_dropable = false
 var body_ref

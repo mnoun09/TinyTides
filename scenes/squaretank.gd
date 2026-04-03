@@ -162,7 +162,3 @@ func sandMenuBlack ():
 	$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/Sand1".visible = false
 	$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Sand2".visible = false
 	$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2".visible = false
-
-func _on_remove_button_pressed() -> void:
-	global.remove = !global.remove
-	print (global.remove)
