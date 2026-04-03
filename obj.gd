@@ -14,22 +14,27 @@ func _process(delta: float) -> void:
 
 
 func _on_button_button_down() -> void:
-	dragging = true
-	if is_in_group("coral"):
-		global.draggingItem = "coral"
-	elif is_in_group("coralRock"):
-		global.draggingItem = "coralRock"
-	elif is_in_group("kelp"):
-		global.draggingItem = "kelp"
-	elif is_in_group("pinkRock"):
-		global.draggingItem = "pinkRock"
-	elif is_in_group("kelpRock"):
-		global.draggingItem = "kelpRock"
-	elif is_in_group("biggerKelpRock"):
-		global.draggingItem = "biggerKelpRock"
-	print (global.draggingItem)
-	offSet = get_global_mouse_position() - global_position
-	get_viewport().get_mouse_position()
+	
+	if global.remove:
+		print ("remove")
+		queue_free()
+	else:
+		dragging = true
+		if is_in_group("coral"):
+			global.draggingItem = "coral"
+		elif is_in_group("coralRock"):
+			global.draggingItem = "coralRock"
+		elif is_in_group("kelp"):
+			global.draggingItem = "kelp"
+		elif is_in_group("pinkRock"):
+			global.draggingItem = "pinkRock"
+		elif is_in_group("kelpRock"):
+			global.draggingItem = "kelpRock"
+		elif is_in_group("biggerKelpRock"):
+			global.draggingItem = "biggerKelpRock"
+		print (global.draggingItem)
+		offSet = get_global_mouse_position() - global_position
+		get_viewport().get_mouse_position()
 
 
 func _on_button_button_up() -> void:

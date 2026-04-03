@@ -2,7 +2,7 @@ extends Node
 
 signal sandChosen(type)
 var draggingItem
-var remove 
+var remove = false
 var sandType
 var sandNum
 var isDragging = false
