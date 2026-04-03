@@ -8,6 +8,7 @@ const pinkRock = preload("res://scenes/decor/pinkRock_draggable.tscn")
 const kelp = preload("res://scenes/decor/kelp_draggable.tscn")
 const kelpRock = preload("res://scenes/decor/kelpRock_draggable.tscn")
 const biggerKelpRock = preload("res://scenes/decor/biggerKelpRock_draggable.tscn")
+var stars = preload("res://scenes/decor/star_draggable.tscn")
 var spawned = false
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
@@ -61,8 +62,13 @@ func _on_area_entered(area: Area2D) -> void:
 		spawnKelp()
 	elif (area.is_in_group("kelpRock")):
 		print ("kelpRock entered")
+		spawnKelpRock()
 	elif (area.is_in_group("biggerKelpRock")):
 		print ("biggerKelpRock entered")
+		spawnBiggerKelpRock()
+	elif (area.is_in_group("stars")):
+		print ("stars entered")
+		spawnStars()
 	
 func spawnCoralRock():
 	var coralRock_instance = coralRock.instantiate()
@@ -93,6 +99,11 @@ func spawnBiggerKelpRock():
 	var biggerKelpRock_instance = biggerKelpRock.instantiate()
 	biggerKelpRock_instance.position = (Vector2i(330, 390))
 	add_child(biggerKelpRock_instance)
+
+func spawnStars():
+	var stars_instance = stars.instantiate()
+	stars_instance.position = (Vector2i(330, 390))
+	add_child(stars_instance)
 	
 func noSandVisible():
 	$Sand1.visible = false

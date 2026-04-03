@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dulsb2ji0shqt"]
+[gd_scene load_steps=31 format=3 uid="uid://dulsb2ji0shqt"]
 
 [ext_resource type="Texture2D" uid="uid://ydy2xxwy61qi" path="res://assets/Buttons.png" id="1_85twv"]
 [ext_resource type="Script" uid="uid://c0f2l2eaqyhgi" path="res://scenes/item_slot.gd" id="2_6d5h6"]
@@ -13,6 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://cgwlk2sqpasxk" path="res://scenes/decor/coral.tscn" id="9_qlopi"]
 [ext_resource type="PackedScene" uid="uid://bxicnmp1f8ox5" path="res://scenes/decor/pinkRock.tscn" id="10_tae0b"]
 [ext_resource type="PackedScene" uid="uid://dqha2wf8eej4k" path="res://scenes/decor/kelp.tscn" id="12_ydyuc"]
+[ext_resource type="PackedScene" uid="uid://c0pocgxa6tcps" path="res://scenes/decor/kelp_rock.tscn" id="14_6pbfu"]
+[ext_resource type="Texture2D" uid="uid://bln3np5qomj3" path="res://scenes/decor/kelpRock1.png" id="15_ap86d"]
+[ext_resource type="PackedScene" uid="uid://ojxysf86sxp0" path="res://scenes/decor/biggerKelpRock.tscn" id="15_v83px"]
+[ext_resource type="Texture2D" uid="uid://dphd3krphnl78" path="res://scenes/decor/biggerKelpRock3.png" id="17_w6w8c"]
+[ext_resource type="PackedScene" uid="uid://ce3q6skvcvchr" path="res://scenes/decor/stars.tscn" id="19_eak2a"]
+[ext_resource type="Texture2D" uid="uid://ctujvs6cotrek" path="res://scenes/decor/stars.png" id="19_hbk5s"]
 
 [sub_resource type="Theme" id="Theme_85twv"]
 
@@ -47,6 +53,18 @@ region = Rect2(1114, 371, 86, 40)
 atlas = ExtResource("7_qlopi")
 region = Rect2(916, 332, 69, 109)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_eak2a"]
+atlas = ExtResource("15_ap86d")
+region = Rect2(1120, 457, 60, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbk5s"]
+atlas = ExtResource("17_w6w8c")
+region = Rect2(1137, 588, 92, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxbck"]
+atlas = ExtResource("19_hbk5s")
+region = Rect2(908, 511, 94, 72)
+
 [node name="SideMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -78,15 +96,7 @@ patch_margin_top = 10
 patch_margin_right = 5
 patch_margin_bottom = 10
 
-[node name="VScrollBar" type="VScrollBar" parent="MarginContainer/MarginContainer/NinePatchRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar"]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/MarginContainer/NinePatchRect"]
 custom_minimum_size = Vector2(400, 600)
 layout_mode = 1
 anchors_preset = 8
@@ -104,7 +114,7 @@ theme_override_constants/h_separation = 40
 theme_override_constants/v_separation = 40
 columns = 2
 
-[node name="ItemSlot" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer"]
+[node name="ItemSlot" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -112,10 +122,10 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
 script = ExtResource("2_6d5h6")
 
-[node name="WhiteSand" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot" instance=ExtResource("3_tx3uf")]
+[node name="WhiteSand" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot" instance=ExtResource("3_tx3uf")]
 position = Vector2(-424, -178)
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot"]
+[node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -132,7 +142,7 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_ydyuc")
 stretch_mode = 5
 
-[node name="ItemSlot2" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer"]
+[node name="ItemSlot2" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -140,10 +150,10 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
 script = ExtResource("2_6d5h6")
 
-[node name="BlackSand" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot2" instance=ExtResource("5_tx3uf")]
+[node name="BlackSand" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot2" instance=ExtResource("5_tx3uf")]
 position = Vector2(-426, -178)
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot2"]
+[node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot2"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -160,7 +170,7 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_3krn0")
 stretch_mode = 5
 
-[node name="ItemSlot3" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer"]
+[node name="ItemSlot3" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -168,10 +178,10 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
 script = ExtResource("2_6d5h6")
 
-[node name="coralRock" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot3" instance=ExtResource("7_7o1yw")]
+[node name="coralRock" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot3" instance=ExtResource("7_7o1yw")]
 position = Vector2(90, 90)
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot3"]
+[node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot3"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -188,7 +198,7 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_6pbfu")
 stretch_mode = 5
 
-[node name="ItemSlot4" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer"]
+[node name="ItemSlot4" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -196,10 +206,10 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
 script = ExtResource("2_6d5h6")
 
-[node name="coral" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot4" instance=ExtResource("9_qlopi")]
+[node name="coral" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot4" instance=ExtResource("9_qlopi")]
 position = Vector2(88, 95)
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot4"]
+[node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot4"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -216,7 +226,7 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_v83px")
 stretch_mode = 5
 
-[node name="ItemSlot5" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer"]
+[node name="ItemSlot5" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -224,10 +234,10 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
 script = ExtResource("2_6d5h6")
 
-[node name="pinkRock" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot5" instance=ExtResource("10_tae0b")]
+[node name="pinkRock" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot5" instance=ExtResource("10_tae0b")]
 position = Vector2(90, 94)
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot5"]
+[node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot5"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -244,7 +254,7 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_ap86d")
 stretch_mode = 5
 
-[node name="ItemSlot6" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer"]
+[node name="ItemSlot6" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -252,10 +262,10 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
 script = ExtResource("2_6d5h6")
 
-[node name="kelp" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot6" instance=ExtResource("12_ydyuc")]
+[node name="kelp" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot6" instance=ExtResource("12_ydyuc")]
 position = Vector2(92, 94)
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot6"]
+[node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot6"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -272,7 +282,103 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_w6w8c")
 stretch_mode = 5
 
-[connection signal="mouse_entered" from="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot/Icon" to="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot" method="_on_icon_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot/Icon" to="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot" method="_on_icon_mouse_exited"]
-[connection signal="mouse_entered" from="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot2/Icon" to="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot2" method="_on_icon_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot2/Icon" to="MarginContainer/MarginContainer/NinePatchRect/VScrollBar/GridContainer/ItemSlot" method="_on_icon_mouse_exited"]
+[node name="ItemSlot7" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
+script = ExtResource("2_6d5h6")
+
+[node name="kelp_rock" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot7" instance=ExtResource("14_6pbfu")]
+position = Vector2(86, 104)
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot7"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -64.0
+offset_right = 76.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_eak2a")
+stretch_mode = 5
+
+[node name="ItemSlot8" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer"]
+visible = false
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
+script = ExtResource("2_6d5h6")
+
+[node name="biggerKelpRock" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot8" instance=ExtResource("15_v83px")]
+position = Vector2(86, 120)
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot8"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -70.0
+offset_right = 94.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture = SubResource("AtlasTexture_hbk5s")
+stretch_mode = 5
+
+[node name="ItemSlot9" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
+script = ExtResource("2_6d5h6")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot9"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_kxbck")
+stretch_mode = 5
+
+[node name="stars" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot9" instance=ExtResource("19_eak2a")]
+position = Vector2(94, 96)
+scale = Vector2(1.5, 1.5)
+
+[node name="ItemSlot10" type="Panel" parent="MarginContainer/MarginContainer/NinePatchRect/GridContainer"]
+visible = false
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_tae0b")
+script = ExtResource("2_6d5h6")
+
+[connection signal="mouse_entered" from="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot/Icon" to="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot" method="_on_icon_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot/Icon" to="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot" method="_on_icon_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot2/Icon" to="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot2" method="_on_icon_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot2/Icon" to="MarginContainer/MarginContainer/NinePatchRect/GridContainer/ItemSlot" method="_on_icon_mouse_exited"]

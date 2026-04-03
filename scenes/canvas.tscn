@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://j66y81f02rio"]
+
+[ext_resource type="Script" uid="uid://cpymfrqn3mt8s" path="res://canvas.gd" id="1_7axt1"]
+
+[node name="canvas" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="canvas" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(384, 360)
+script = ExtResource("1_7axt1")
