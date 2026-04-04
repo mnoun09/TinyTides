@@ -48,6 +48,8 @@ func _on_button_button_down() -> void:
 			global.draggingItem = "kelpRock"
 		elif is_in_group("biggerKelpRock"):
 			global.draggingItem = "biggerKelpRock"
+		elif is_in_group("lilyPad"):
+			global.draggingItem = "lilyPad"
 		print (global.draggingItem)
 		offSet = get_global_mouse_position() - global_position
 		get_viewport().get_mouse_position()

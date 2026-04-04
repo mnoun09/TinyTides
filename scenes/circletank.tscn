@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnw01rb3srh26"]
+[gd_scene load_steps=11 format=3 uid="uid://bnw01rb3srh26"]
 
 [ext_resource type="Script" uid="uid://bn0fmsiiemjo0" path="res://scenes/circletank.gd" id="1_fjvat"]
 [ext_resource type="Texture2D" uid="uid://ebkb4hslk2xb" path="res://assets/circleTank/circleTankWater.png" id="1_yyv5c"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d2lsnt5i1k0ha" path="res://assets/circleTank/sand2.png" id="6_pqw3s"]
 [ext_resource type="Texture2D" uid="uid://ccv82dragc4il" path="res://assets/circleTank/sand3.png" id="7_ukls4"]
 [ext_resource type="Texture2D" uid="uid://chcykho0o6f2d" path="res://assets/circleTank/circleTankOutline.png" id="8_pfxdj"]
+[ext_resource type="AudioStream" uid="uid://bq5nvkmghgvwy" path="res://sounds/bubblePop.mp3" id="10_gws5g"]
 
 [node name="circletank" type="Area2D"]
 script = ExtResource("1_fjvat")
@@ -54,6 +55,10 @@ texture = ExtResource("7_ukls4")
 [node name="CircleTankOutline" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 texture = ExtResource("8_pfxdj")
+
+[node name="bubble" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_gws5g")
+volume_db = -20.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

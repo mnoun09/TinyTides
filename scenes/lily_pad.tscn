@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4pmqebw1nxca"]
+
+[ext_resource type="Texture2D" uid="uid://bi21yovp4c66y" path="res://scenes/decor/lilyPad.png" id="1_mjfoc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qnqs"]
+atlas = ExtResource("1_mjfoc")
+region = Rect2(688, 80, 128, 88)
+
+[node name="lilyPad" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="." groups=["lilyPad"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = SubResource("AtlasTexture_5qnqs")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(3, -43.2, 3, -40.3, -6.4000015, -36, -8.900002, -36, -18.900002, -25, -20.400002, -25, -26.400002, -7, -28.400002, -7, -24, 15.400002, -24, 18.8, -11, 32.800003, -11, 34.4, 4, 40.300003, 4, 42, 11, 42, 11, 43.5, 27.400002, 40, 30.699997, 40, 38.699997, 34, 40.9, 34, 49.9, 23, 51.5, 23, 56.5, 4, 58.5, 4, 55, -12.4, 55, -15.700001, 41, -32.7, 41, -34.2, 33.5, -38, 30.300003, -38, 17.300003, -27, 13, -35.5, 13, -38.2)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-36, -33, -36, -31, -43.7, -25, -46, -25, -46, -16, -39, -11, -39, -8.400002, -32.9, -10, -29, -10, -22, -19.3, -22, -26.8, -26, -30.8, -26, -33)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-43, -8.299999, -43, -6.299999, -53.5, -1, -56.1, -1, -59.1, 4, -61.2, 4, -60, 16.2, -60, 19.8, -54, 25.800003, -54, 28, -34.1, 28, -28.099998, 21, -26.5, 21, -24, 12.299999, -24, 5.299999, -32, -4.700001, -32, -6.700001)

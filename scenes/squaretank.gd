@@ -8,7 +8,16 @@ const pinkRock = preload("res://scenes/decor/pinkRock_draggable.tscn")
 const kelp = preload("res://scenes/decor/kelp_draggable.tscn")
 const kelpRock = preload("res://scenes/decor/kelpRock_draggable.tscn")
 const biggerKelpRock = preload("res://scenes/decor/biggerKelpRock_draggable.tscn")
-var stars = preload("res://scenes/decor/star_draggable.tscn")
+const stars = preload("res://scenes/decor/star_draggable.tscn")
+var lilyPads = [
+	preload("res://scenes/lily_pad_draggable.tscn"),
+	preload("res://scenes/lily_pad1_draggable.tscn"),
+	preload("res://scenes/lily_pad2_draggable.tscn"),
+	preload("res://scenes/lily_pad3_draggable.tscn"),
+	preload("res://scenes/lily_pad4_draggable.tscn"),
+	preload("res://scenes/lily_pad5_draggable.tscn")
+]
+var lilyPad = lilyPads.pick_random()
 var spawned = false
 @onready var bubbleSounds = $"../bubble"
 
@@ -72,6 +81,9 @@ func _on_area_entered(area: Area2D) -> void:
 	elif (area.is_in_group("stars")):
 		print ("stars entered")
 		spawnStars()
+	elif (area.is_in_group("lilyPad")):
+		print ("lilypad")
+		spawnLilyPad()
 	
 func spawnCoralRock():
 	bubbleSounds.play()
@@ -114,6 +126,12 @@ func spawnStars():
 	var stars_instance = stars.instantiate()
 	stars_instance.position = (Vector2i(330, 390))
 	add_child(stars_instance)
+	
+func spawnLilyPad():
+	bubbleSounds.play()
+	var lily_instance = lilyPad.instantiate()
+	lily_instance.position = (Vector2i(330, 390))
+	add_child(lily_instance)
 	
 func noSandVisible():
 	$Sand1.visible = false

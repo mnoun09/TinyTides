@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://w4ajb4ieyc5p"]
+
+[ext_resource type="Texture2D" uid="uid://ceg2ry65y5nwp" path="res://scenes/decor/lilyPad5.png" id="1_r0f1o"]
+[ext_resource type="Script" uid="uid://juvverusicyj" path="res://obj.gd" id="2_5kkpm"]
+[ext_resource type="AudioStream" uid="uid://7uli7bkknb1r" path="res://sounds/bubblePop2.mp3" id="3_wovbj"]
+
+[node name="lilyPad_draggable" type="Node2D"]
+
+[node name="obj" type="Sprite2D" parent="." groups=["draggable", "lilyPad"]]
+position = Vector2(424, 88)
+texture = ExtResource("1_r0f1o")
+script = ExtResource("2_5kkpm")
+
+[node name="Button" type="Button" parent="obj"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -464.0
+offset_top = -112.0
+offset_right = -376.0
+offset_bottom = -56.0
+
+[node name="trash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wovbj")
+volume_db = -25.0
+
+[connection signal="button_down" from="obj/Button" to="obj" method="_on_button_button_down"]
+[connection signal="button_up" from="obj/Button" to="obj" method="_on_button_button_up"]

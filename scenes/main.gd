@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 
 
 func _on_done_pressed() -> void:
+	$done2.visible = true
 	player.play("cameraAnimation")
 	$SideMenu.visible = false
 	$trash.visible = false
@@ -20,3 +21,7 @@ func _on_done_pressed() -> void:
 	$rotateccw.visible = false
 	$flip.visible = false
 	$done.visible = false
+
+
+func _on_done_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/home.tscn")

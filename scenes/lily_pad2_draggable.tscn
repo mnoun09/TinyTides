@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://gaice16nq8ku"]
+
+[ext_resource type="Texture2D" uid="uid://m6hvfjbqgs7q" path="res://scenes/decor/lilyPad2.png" id="1_furgv"]
+[ext_resource type="Script" uid="uid://juvverusicyj" path="res://obj.gd" id="2_r4bpw"]
+[ext_resource type="AudioStream" uid="uid://7uli7bkknb1r" path="res://sounds/bubblePop2.mp3" id="3_vcots"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4bpw"]
+atlas = ExtResource("1_furgv")
+
+[node name="lilyPad_draggable" type="Node2D"]
+
+[node name="obj" type="Sprite2D" parent="." groups=["draggable", "lilyPad"]]
+position = Vector2(336, 88)
+texture = SubResource("AtlasTexture_r4bpw")
+script = ExtResource("2_r4bpw")
+
+[node name="Button" type="Button" parent="obj"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -360.0
+offset_top = -104.0
+offset_right = -312.0
+offset_bottom = -72.0
+
+[node name="trash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vcots")
+volume_db = -25.0
+
+[connection signal="button_down" from="obj/Button" to="obj" method="_on_button_button_down"]
+[connection signal="button_up" from="obj/Button" to="obj" method="_on_button_button_up"]

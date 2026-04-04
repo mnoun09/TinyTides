@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6k0beh5qh1oq"]
+[gd_scene load_steps=10 format=3 uid="uid://b6k0beh5qh1oq"]
 
 [ext_resource type="Texture2D" uid="uid://blp5it6jnqxu8" path="res://assets/squarewater.png" id="1_5oltt"]
 [ext_resource type="Texture2D" uid="uid://d35scacdmbvfy" path="res://assets/sand1.png" id="2_ar30u"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://6m0vl5f55key" path="res://assets/blackSand1.png" id="5_d3o5d"]
 [ext_resource type="Texture2D" uid="uid://cm2ltobag34ge" path="res://assets/blacksand2.png" id="6_3o242"]
 [ext_resource type="Texture2D" uid="uid://dnl1wqxpxy1d7" path="res://assets/blacksand3.png" id="7_2mjbi"]
+[ext_resource type="AudioStream" uid="uid://bq5nvkmghgvwy" path="res://sounds/bubblePop.mp3" id="9_lo7gs"]
 
 [node name="Squaretank" type="Area2D"]
 
@@ -52,6 +53,10 @@ texture = ExtResource("7_2mjbi")
 [node name="Squaretankoutline" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 texture = ExtResource("2_ocevk")
+
+[node name="bubble" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_lo7gs")
+volume_db = -20.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

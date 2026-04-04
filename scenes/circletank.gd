@@ -67,7 +67,7 @@ func _on_area_entered(area: Area2D) -> void:
 		spawnStars()
 	
 func spawnCoralRock():
-	bubbleSounds.play()
+	$"../bubble".play()
 	var coralRock_instance = coralRock.instantiate()
 	coralRock_instance.position = (Vector2i(330, 390))
 	add_child(coralRock_instance)

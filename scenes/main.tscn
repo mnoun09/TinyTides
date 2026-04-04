@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b056onf7c73qf"]
+[gd_scene load_steps=28 format=3 uid="uid://b056onf7c73qf"]
 
 [ext_resource type="PackedScene" uid="uid://dulsb2ji0shqt" path="res://scenes/side_menu.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cvsu7eoue2pyy" path="res://scenes/main.gd" id="1_ya4ey"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c1ek8kcpd2kq3" path="res://scenes/tank_options.tscn" id="16_muem4"]
 
 [sub_resource type="Animation" id="Animation_ya4ey"]
-length = 0.001
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -95,6 +95,13 @@ region = Rect2(750, 649, 49, 47)
 texture = SubResource("AtlasTexture_muem4")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ld40"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp3eg"]
+atlas = ExtResource("12_trceg")
+region = Rect2(750, 649, 49, 47)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ld40"]
+texture = SubResource("AtlasTexture_dp3eg")
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_ya4ey")
@@ -222,16 +229,28 @@ toggle_mode = true
 
 [node name="tankOptions" parent="." instance=ExtResource("16_muem4")]
 
+[node name="done2" type="Button" parent="."]
+offset_left = -136.0
+offset_top = 104.0
+offset_right = -64.0
+offset_bottom = 168.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_0ld40")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0ld40")
+
 [connection signal="area_entered" from="rectTank" to="rectTank" method="_on_area_entered"]
 [connection signal="area_exited" from="rectTank" to="rectTank" method="_on_area_exited"]
 [connection signal="body_entered" from="rectTank" to="rectTank" method="_on_body_entered"]
 [connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button" to="Squaretank" method="_on_button_pressed"]
 [connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button" to="circletank" method="_on_button_pressed"]
+[connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button" to="rectTank" method="_on_button_pressed"]
 [connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2" to="Squaretank" method="_on_button_2_pressed"]
 [connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2" to="circletank" method="_on_button_2_pressed"]
+[connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2" to="rectTank" method="_on_button_2_pressed"]
 [connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3" to="Squaretank" method="_on_button_3_pressed"]
 [connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3" to="circletank" method="_on_button_3_pressed"]
+[connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3" to="rectTank" method="_on_button_3_pressed"]
 [connection signal="pressed" from="done" to="." method="_on_done_pressed"]
+[connection signal="pressed" from="done2" to="." method="_on_done_2_pressed"]
 
 [editable path="sandType"]
 [editable path="tankOptions"]

@@ -119,7 +119,7 @@ func noSandVisible():
 	$SqBlackSand3.visible = false
 	$SqSand1.visible = false
 	$SqSand2.visible = false
-	$SqSand3.visble = false
+	$SqSand3.visible = false
 	
 func _on_button_pressed() -> void:
 	noSandVisible()
@@ -141,7 +141,7 @@ func _on_button_3_pressed() -> void:
 	noSandVisible()
 	$"../sandType".visible = false
 	if global.sandType == "white":
-		$SqSand3.visble = true
+		$SqSand3.visible = true
 	elif global.sandType == "black":
 		$SqBlackSand3.visible = true
 
