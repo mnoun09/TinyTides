@@ -1,10 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://b056onf7c73qf"]
+[gd_scene load_steps=26 format=3 uid="uid://b056onf7c73qf"]
 
 [ext_resource type="PackedScene" uid="uid://dulsb2ji0shqt" path="res://scenes/side_menu.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cvsu7eoue2pyy" path="res://scenes/main.gd" id="1_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://b6k0beh5qh1oq" path="res://scenes/squaretank.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bu8gh7lijx58i" path="res://drag_test.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bnw01rb3srh26" path="res://scenes/circletank.tscn" id="4_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://kqpbxcps0ifa" path="res://scenes/sand_type.tscn" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://dscrliwe8adml" path="res://scenes/squaretank.gd" id="4_muem4"]
 [ext_resource type="PackedScene" uid="uid://c4ww2mg0sbiae" path="res://scenes/rotate.tscn" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://ix8rqonb8hcv" path="res://scenes/trash.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://c8c5427kvsjwv" path="res://scenes/rotateccw.tscn" id="7_o6xl0"]
@@ -13,6 +15,8 @@
 [ext_resource type="AudioStream" uid="uid://bvq8e1oacc2cd" path="res://sounds/calmingMusic.mp3" id="10_choun"]
 [ext_resource type="Texture2D" uid="uid://c0taeme6m3o6u" path="res://assets/buttons/Unpressed.png" id="12_trceg"]
 [ext_resource type="Texture2D" uid="uid://dniowxb6q1f27" path="res://assets/buttons/Pressed.png" id="13_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://crwiqo0y60l5a" path="res://scenes/rectangleTank.tscn" id="16_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://c1ek8kcpd2kq3" path="res://scenes/tank_options.tscn" id="16_muem4"]
 
 [sub_resource type="Animation" id="Animation_ya4ey"]
 length = 0.001
@@ -115,7 +119,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Squaretank" parent="." instance=ExtResource("2_0wfyh")]
+visible = false
 position = Vector2(56, -16)
+script = ExtResource("4_muem4")
+
+[node name="circletank" parent="." instance=ExtResource("4_jkv2x")]
+visible = false
+position = Vector2(27, -16)
+
+[node name="rectTank" parent="." instance=ExtResource("16_jbj1t")]
+visible = false
+position = Vector2(0, -16)
 
 [node name="dragTest" parent="." instance=ExtResource("3_sugp2")]
 visible = false
@@ -124,20 +138,56 @@ position = Vector2(160, 184)
 [node name="sandType" parent="." instance=ExtResource("4_jyhfs")]
 visible = false
 
+[node name="BlackSand1" parent="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/CircleTankWater" index="0"]
+visible = false
+
+[node name="Sand1" parent="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/CircleTankWater" index="1"]
+visible = false
+
+[node name="SqSand1" parent="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/RectWater" index="0"]
+visible = false
+
+[node name="SqblackSand1" parent="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/RectWater" index="1"]
+visible = false
+
+[node name="SqblackSand2" parent="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/RectWater" index="0"]
+visible = false
+
+[node name="SqSand2" parent="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/RectWater" index="1"]
+visible = false
+
+[node name="BlackSand2" parent="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/CircleTankWater" index="0"]
+visible = false
+
+[node name="Sand2" parent="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/CircleTankWater" index="1"]
+visible = false
+
+[node name="SqBlackSand3" parent="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/RectWater" index="0"]
+visible = false
+
+[node name="SqSand3" parent="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/RectWater" index="1"]
+visible = false
+
+[node name="BlackSand3" parent="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/CircleTankWater" index="0"]
+visible = false
+
+[node name="Sand3" parent="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/CircleTankWater" index="1"]
+visible = false
+
 [node name="trash" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(64, 664)
 scale = Vector2(0.7, 0.7)
 
 [node name="rotate" parent="." instance=ExtResource("6_o6xl0")]
-position = Vector2(16, 32)
+position = Vector2(560.00006, 40)
 scale = Vector2(0.8, 0.8)
 
 [node name="rotateccw" parent="." instance=ExtResource("7_o6xl0")]
-position = Vector2(24, 256)
+position = Vector2(679.99994, 40)
 scale = Vector2(0.8, 0.8)
 
 [node name="flip" parent="." instance=ExtResource("8_tipki")]
-position = Vector2(16, 144)
+position = Vector2(448, 40.000008)
 scale = Vector2(0.8, 0.8)
 
 [node name="bubble" type="AudioStreamPlayer" parent="."]
@@ -170,9 +220,18 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_dp3eg")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0ld40")
 toggle_mode = true
 
+[node name="tankOptions" parent="." instance=ExtResource("16_muem4")]
+
+[connection signal="area_entered" from="rectTank" to="rectTank" method="_on_area_entered"]
+[connection signal="area_exited" from="rectTank" to="rectTank" method="_on_area_exited"]
+[connection signal="body_entered" from="rectTank" to="rectTank" method="_on_body_entered"]
 [connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button" to="Squaretank" method="_on_button_pressed"]
+[connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button" to="circletank" method="_on_button_pressed"]
 [connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2" to="Squaretank" method="_on_button_2_pressed"]
+[connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2" to="circletank" method="_on_button_2_pressed"]
 [connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3" to="Squaretank" method="_on_button_3_pressed"]
+[connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3" to="circletank" method="_on_button_3_pressed"]
 [connection signal="pressed" from="done" to="." method="_on_done_pressed"]
 
 [editable path="sandType"]
+[editable path="tankOptions"]

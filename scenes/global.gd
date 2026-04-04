@@ -1,6 +1,7 @@
 extends Node
 
 signal sandChosen(type)
+var tank = ""
 var draggingItem
 var remove = false
 var rotate = false

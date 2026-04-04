@@ -1,6 +1,7 @@
 extends Area2D
-@onready var sandMenu = $"../sandType"
+
 @onready var tank = $"."
+@onready var sandType = $"../sandType"
 const sandOptions = preload("res://scenes/sand_type.tscn")
 const coral = preload("res://scenes/decor/coral_draggable.tscn")
 const coralRock = preload("res://scenes/decor/coral_rock_draggable.tscn")
@@ -33,24 +34,16 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if (area.is_in_group("sand")):
-
 		await get_tree().create_timer(.2).timeout
 		global.sandType = "white"
-		$"../sandType".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/Sand1".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Sand2".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3/Sand3".visible = true
-		print ("sand entered")
 		sandMenuWhite()
+		sandType.visible = true
+		print ("sand entered")
 	elif (area.is_in_group("blackSand")):
-
 		print ("black sand entered")
 		sandMenuBlack()
 		global.sandType = "black"
-		$"../sandType".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/BlackSand1".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3/Blacksand3".visible = true
+		sandType.visible = true
 	elif (area.is_in_group("coralRock")):
 		print ("coralRock entered")
 		spawnCoralRock()
@@ -158,25 +151,27 @@ func _on_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
 	
 func sandMenuWhite ():
-	if global.tank == "square":
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/Sand1".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Sand2".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/BlackSand1".visible = false
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2".visible = false
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3/Blacksand3".visible = false
-	
+	if global.tank == "circle":
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/CircleTankWater".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/CircleTankWater".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/CircleTankWater".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/CircleTankWater/Sand1".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/CircleTankWater/Sand2".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/CircleTankWater/Sand3".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/CircleTankWater/BlackSand1".visible = false
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/CircleTankWater/BlackSand2".visible = false
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/CircleTankWater/BlackSand3".visible = false
+		
 func sandMenuBlack ():
-	if global.tank == "square":
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/BlackSand1".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3/Blacksand3".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/Sand1".visible = false
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Sand2".visible = false
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2".visible = false
+	if global.tank == "circle":
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/CircleTankWater".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/CircleTankWater".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/CircleTankWater".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/CircleTankWater".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/CircleTankWater/Sand1".visible = false
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/CircleTankWater/Sand2".visible = false
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/CircleTankWater/Sand3".visible = false
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/CircleTankWater/BlackSand1".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/CircleTankWater/BlackSand2".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/CircleTankWater/BlackSand3".visible = true
+		

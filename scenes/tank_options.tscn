@@ -1,0 +1,113 @@
+[gd_scene load_steps=13 format=3 uid="uid://c1ek8kcpd2kq3"]
+
+[ext_resource type="Texture2D" uid="uid://ydy2xxwy61qi" path="res://assets/Buttons.png" id="1_fuy1t"]
+[ext_resource type="Script" uid="uid://crblufhcfalwe" path="res://scenes/tank_options.gd" id="1_twsu2"]
+[ext_resource type="PackedScene" uid="uid://b6k0beh5qh1oq" path="res://scenes/squaretank.tscn" id="3_k16vt"]
+[ext_resource type="PackedScene" uid="uid://bnw01rb3srh26" path="res://scenes/circletank.tscn" id="4_k16vt"]
+[ext_resource type="PackedScene" uid="uid://crwiqo0y60l5a" path="res://scenes/rectangleTank.tscn" id="5_uk7mt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wey1"]
+bg_color = Color(1, 0.88235295, 0.69411767, 0.38039216)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5r04"]
+bg_color = Color(1, 0.9157993, 0.72745514, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_twsu2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tc88x"]
+bg_color = Color(1, 0.9157993, 0.72745514, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k16vt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_twsu2"]
+bg_color = Color(1, 0.9157993, 0.72745514, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uk7mt"]
+
+[node name="tankOptions" type="Node2D"]
+script = ExtResource("1_twsu2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(900, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_fuy1t")
+region_rect = Rect2(549, 285, 462, 205)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 60
+
+[node name="Circle" type="Button" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer"]
+custom_minimum_size = Vector2(220, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_5wey1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c5r04")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_twsu2")
+
+[node name="circletank" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Circle" instance=ExtResource("4_k16vt")]
+position = Vector2(-17, -53)
+scale = Vector2(0.35, 0.35)
+
+[node name="Sq" type="Button" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer"]
+custom_minimum_size = Vector2(220, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_5wey1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tc88x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k16vt")
+
+[node name="Squaretank" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Sq" instance=ExtResource("3_k16vt")]
+position = Vector2(10, -30)
+scale = Vector2(0.3, 0.3)
+
+[node name="Rec" type="Button" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer"]
+custom_minimum_size = Vector2(220, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_5wey1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_twsu2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uk7mt")
+
+[node name="squareTank" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Rec" instance=ExtResource("5_uk7mt")]
+position = Vector2(-7, -29.999985)
+scale = Vector2(0.3, 0.3)
+
+[connection signal="pressed" from="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Circle" to="." method="_on_circle_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Sq" to="." method="_on_sq_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Rec" to="." method="_on_rec_pressed"]

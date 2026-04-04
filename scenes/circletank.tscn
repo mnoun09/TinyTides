@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://bnw01rb3srh26"]
+
+[ext_resource type="Script" uid="uid://bn0fmsiiemjo0" path="res://scenes/circletank.gd" id="1_fjvat"]
+[ext_resource type="Texture2D" uid="uid://ebkb4hslk2xb" path="res://assets/circleTank/circleTankWater.png" id="1_yyv5c"]
+[ext_resource type="Texture2D" uid="uid://bap4bj2jukphe" path="res://assets/circleTank/blackSand1.png" id="2_fjvat"]
+[ext_resource type="Texture2D" uid="uid://cmj4hktfn108r" path="res://assets/circleTank/blackSand2.png" id="3_gws5g"]
+[ext_resource type="Texture2D" uid="uid://bscdlrvhhxpo5" path="res://assets/circleTank/blackSand3.png" id="4_3ryi6"]
+[ext_resource type="Texture2D" uid="uid://bphis0ccietae" path="res://assets/circleTank/sand1.png" id="5_86l5e"]
+[ext_resource type="Texture2D" uid="uid://d2lsnt5i1k0ha" path="res://assets/circleTank/sand2.png" id="6_pqw3s"]
+[ext_resource type="Texture2D" uid="uid://ccv82dragc4il" path="res://assets/circleTank/sand3.png" id="7_ukls4"]
+[ext_resource type="Texture2D" uid="uid://chcykho0o6f2d" path="res://assets/circleTank/circleTankOutline.png" id="8_pfxdj"]
+
+[node name="circletank" type="Area2D"]
+script = ExtResource("1_fjvat")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["waterZone"]]
+position = Vector2(640, 360)
+polygon = PackedVector2Array(-425, -108, -425, -105.7, -471, -43, -472.2, -43, -483.2, -21, -484.6, -21, -493.5, 14, -494.9, 14, -498, 66.899994, -498, 96.29999, -485, 144, -485, 147.5, -467, 178.40002, -467, 180.90002, -446, 199.79999, -446, 201.5, -437.3, 204, -435.7, 204, -424, 212.90002, -424, 214.29999, -412, 219.29999, -412, 220.59998, -392, 224.59998, -392, 226.09998, -279, 221.90002, -279, 221, -201, 222.90002, -201, 224.09998, -161.9, 222, -158.4, 222, -126.400024, 202, -124.099976, 202, -103.20001, 180, -101.79999, 180, -96.79999, 171, -95.70001, 171, -76.70001, 127, -75.29999, 127, -69.29999, 94, -68, 94, -68, 71, -67, 71, -67, 50.799988, -74, 19.600006, -74, 13.600006, -90, -29.5, -90, -32.5, -103, -56.700012, -103, -58.700012, -118, -77.70001, -118, -79.899994, -145, -105, -145, -107)
+
+[node name="CircleTankWater" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_yyv5c")
+
+[node name="BlackSand1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("2_fjvat")
+
+[node name="BlackSand2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("3_gws5g")
+
+[node name="BlackSand3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("4_3ryi6")
+
+[node name="Sand1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("5_86l5e")
+
+[node name="Sand2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("6_pqw3s")
+
+[node name="Sand3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("7_ukls4")
+
+[node name="CircleTankOutline" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("8_pfxdj")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

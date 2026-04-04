@@ -1,5 +1,5 @@
 extends Area2D
-@onready var sandMenu = $"../sandType"
+
 @onready var tank = $"."
 const sandOptions = preload("res://scenes/sand_type.tscn")
 const coral = preload("res://scenes/decor/coral_draggable.tscn")
@@ -33,7 +33,6 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if (area.is_in_group("sand")):
-
 		await get_tree().create_timer(.2).timeout
 		global.sandType = "white"
 		$"../sandType".visible = true
@@ -43,7 +42,6 @@ func _on_area_entered(area: Area2D) -> void:
 		print ("sand entered")
 		sandMenuWhite()
 	elif (area.is_in_group("blackSand")):
-
 		print ("black sand entered")
 		sandMenuBlack()
 		global.sandType = "black"
@@ -116,36 +114,36 @@ func spawnStars():
 	add_child(stars_instance)
 	
 func noSandVisible():
-	$Sand1.visible = false
-	$Sand2.visible = false
-	$Sand3.visible = false
-	$BlackSand1.visible = false
-	$BlackSand2.visible = false
-	$BlackSand3.visible = false
-
+	$SqblackSand1.visible = false
+	$SqblackSand2.visible = false
+	$SqBlackSand3.visible = false
+	$SqSand1.visible = false
+	$SqSand2.visible = false
+	$SqSand3.visble = false
+	
 func _on_button_pressed() -> void:
 	noSandVisible()
 	$"../sandType".visible = false
 	if global.sandType == "white":
-		$Sand1.visible = true
+		$SqSand1.visible = true
 	elif global.sandType == "black":
-		$BlackSand1.visible = true
+		$SqblackSand1.visible = true
 	
 func _on_button_2_pressed() -> void:
 	noSandVisible()
 	$"../sandType".visible = false
 	if global.sandType == "white":
-		$Sand2.visible = true
+		$SqSand2.visible = true
 	elif global.sandType == "black":
-		$BlackSand2.visible = true
+		$SqblackSand2.visible = true
 
 func _on_button_3_pressed() -> void:
 	noSandVisible()
 	$"../sandType".visible = false
 	if global.sandType == "white":
-		$Sand3.visible = true
+		$SqSand3.visble = true
 	elif global.sandType == "black":
-		$BlackSand3.visible = true
+		$SqBlackSand3.visible = true
 
 
 func _on_area_exited(area: Area2D) -> void:
@@ -158,25 +156,25 @@ func _on_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
 	
 func sandMenuWhite ():
-	if global.tank == "square":
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/Sand1".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Sand2".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/BlackSand1".visible = false
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2".visible = false
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3/Blacksand3".visible = false
+	if global.tank == "rectangle":
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/RectWater".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/RectWater".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/RectWater".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/RectWater/SqSand1".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/RectWater/SqSand2".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/RectWater/SqSand3".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/RectWater/SqblackSand1".visible = false
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/RectWater/SqblackSand2".visible = false
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/RectWater/SqBlackSand3".visible = false
 	
 func sandMenuBlack ():
-	if global.tank == "square":
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/BlackSand1".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3/Blacksand3".visible = true
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/Squarewater/Sand1".visible = false
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Sand2".visible = false
-		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/Squarewater2/Blacksand2".visible = false
+	if global.tank == "rectangle":
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/RectWater".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/RectWater".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/RectWater".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/RectWater/SqblackSand1".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/RectWater/SqblackSand2".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/RectWater/SqBlackSand3".visible = true
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button/RectWater/SqSand1".visible = false
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2/RectWater/SqSand2".visible = false
+		$"../sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/RectWater/SqSand3".visible = false

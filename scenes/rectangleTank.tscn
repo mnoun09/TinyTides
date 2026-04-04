@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://crwiqo0y60l5a"]
+
+[ext_resource type="Texture2D" uid="uid://darvauax7rwq2" path="res://assets/rectTank/squareTankWater.png" id="1_ovrji"]
+[ext_resource type="Script" uid="uid://dy5wwqwf471xu" path="res://scenes/rectangle_tank.gd" id="1_t721n"]
+[ext_resource type="Texture2D" uid="uid://by0iyy2iuk0pm" path="res://assets/rectTank/squareTankOutline.png" id="2_ajx85"]
+[ext_resource type="Texture2D" uid="uid://csbo6c02yy87g" path="res://assets/rectTank/sqblackSand1.png" id="2_nbaeh"]
+[ext_resource type="Texture2D" uid="uid://ds82orehqsdh6" path="res://assets/rectTank/sqblackSand2.png" id="3_aogl5"]
+[ext_resource type="Texture2D" uid="uid://7mrxol6k15py" path="res://assets/rectTank/sqBlackSand3.png" id="4_wqr1x"]
+[ext_resource type="Texture2D" uid="uid://cblrjj2c83q38" path="res://assets/rectTank/sqSand1.png" id="5_qfrvh"]
+[ext_resource type="Texture2D" uid="uid://bkwr7jttrb7t5" path="res://assets/rectTank/sqSand2.png" id="6_sh5tj"]
+[ext_resource type="Texture2D" uid="uid://bxpm5ejvtyrn" path="res://assets/rectTank/sqSand3.png" id="7_1exod"]
+
+[node name="rectTank" type="Area2D"]
+script = ExtResource("1_t721n")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["waterZone"]]
+position = Vector2(640, 360)
+polygon = PackedVector2Array(-458, -108, -458, -106, -513.7, -64, -516, -64, -516, 226.09998, -513, 228.09998, -513, 230, 4, 229, 9, 229, 11, -28, 12, -28, 12, -63.100006, -57, -106.2, -57, -108)
+
+[node name="SquareTankWater" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_ovrji")
+
+[node name="SqblackSand1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("2_nbaeh")
+
+[node name="SqblackSand2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("3_aogl5")
+
+[node name="SqBlackSand3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("4_wqr1x")
+
+[node name="SqSand1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("5_qfrvh")
+
+[node name="SqSand2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("6_sh5tj")
+
+[node name="SqSand3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("7_1exod")
+
+[node name="SquareTankOutline" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("2_ajx85")
