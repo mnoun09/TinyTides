@@ -1,16 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8c5427kvsjwv"]
+[gd_scene load_steps=9 format=3 uid="uid://c8c5427kvsjwv"]
 
 [ext_resource type="Script" uid="uid://r146llg78t2u" path="res://rotateccw.gd" id="1_b21c4"]
-[ext_resource type="Texture2D" uid="uid://bkqv5mmp0ataj" path="res://images/icon.jpg" id="2_61gn1"]
+[ext_resource type="Texture2D" uid="uid://c0taeme6m3o6u" path="res://assets/buttons/Unpressed.png" id="2_wbkoj"]
+[ext_resource type="Texture2D" uid="uid://dniowxb6q1f27" path="res://assets/buttons/Pressed.png" id="3_dt0b1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eocl"]
+atlas = ExtResource("2_wbkoj")
+region = Rect2(41, 144, 99, 86)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f2l7h"]
+texture = SubResource("AtlasTexture_3eocl")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbkoj"]
+atlas = ExtResource("3_dt0b1")
+region = Rect2(41, 144, 99, 86)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xedlw"]
+texture = SubResource("AtlasTexture_wbkoj")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jrjcu"]
 
 [node name="rotateccw" type="Node2D"]
 script = ExtResource("1_b21c4")
 
 [node name="Button" type="Button" parent="."]
-offset_right = 8.0
+offset_right = 9.0
 offset_bottom = 8.0
-scale = Vector2(0.4, 0.4)
-text = "ccw"
-icon = ExtResource("2_61gn1")
+scale = Vector2(12, 12)
+theme_override_styles/normal = SubResource("StyleBoxTexture_f2l7h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xedlw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xedlw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jrjcu")
+toggle_mode = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

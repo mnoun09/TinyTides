@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cenvyxt8n74sl"]
+[gd_scene load_steps=5 format=3 uid="uid://cenvyxt8n74sl"]
 
 [ext_resource type="Texture2D" uid="uid://c6aml3n8i8q3g" path="res://assets/coralandrock.png" id="1_bdgiv"]
 [ext_resource type="Script" uid="uid://juvverusicyj" path="res://obj.gd" id="2_qdw1j"]
+[ext_resource type="AudioStream" uid="uid://7uli7bkknb1r" path="res://sounds/bubblePop2.mp3" id="3_qdw1j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bdgiv"]
 atlas = ExtResource("1_bdgiv")
@@ -22,6 +23,10 @@ offset_bottom = 56.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-12.5, -53, -14.299999, -51, -16.599998, -51, -15.5, -30.9, -15.5, -28, -16.400002, -28, -20.5, -35.5, -20.5, -38.1, -25.5, -41.1, -25.5, -43.6, -31.6, -42, -34.5, -42, -41.3, -33, -45.2, -33, -50.5, -28.6, -50.5, -11.799999, -36, -4, -40.5, 1.2000008, -40.5, 6.700001, -34.5, 13.699997, -34.5, 15.199997, -19, 23, -16.5, 23, -13.5, 27, -11.5, 39.300003, -11.5, 46.699997, -6.5, 52.699997, 12.099998, 53, 14.5, 50, 15.900002, 50, 18.5, 43.4, 18.5, 35.699997, 15.5, 26.699997, 30.800003, 20, 33.4, 20, 38.4, 14, 40.699997, 14, 39.5, 3.4000015, 40.800003, 3, 44.4, 3, 50.4, -4, 50.5, -23.5, 48.5, -25, 48.5, -26.2, 45, -28, 36.9, -28, 30.900002, -24, 29.400002, -24, 23.400002, -31, 20.900002, -31, 23.599998, -36, 25.5, -36, 25.5, -46.8, 20.5, -51.8, 20.5, -53, 5.200001, -53, 3, -51.3, 1.5, -52.8)
+
+[node name="trash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qdw1j")
+volume_db = -20.0
 
 [connection signal="button_down" from="obj/Button" to="obj" method="_on_button_button_down"]
 [connection signal="button_up" from="obj/Button" to="obj" method="_on_button_button_up"]

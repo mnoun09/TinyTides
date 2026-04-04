@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var sandSound = $sand
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,14 +26,17 @@ func _process(delta: float) -> void:
 
 #unnecessary functions
 func _on_button_pressed() -> void:
+	sandSound.play()
 	global.sandNum = 1
 	global.sandChosen.emit(1)
 	print (global.sandNum)
 
 func _on_button_2_pressed() -> void:
+	sandSound.play()
 	global.sandNum = 2
 	global.sandChosen.emit(2)
 
 func _on_button_3_pressed() -> void:
+	sandSound.play()
 	global.sandNum = 3
 	global.sandChosen.emit(3)

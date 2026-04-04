@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://kqpbxcps0ifa"]
+[gd_scene load_steps=13 format=3 uid="uid://kqpbxcps0ifa"]
 
 [ext_resource type="Script" uid="uid://cfyy6wgnuipjf" path="res://scenes/sand_type.gd" id="1_6pbrs"]
 [ext_resource type="Texture2D" uid="uid://ydy2xxwy61qi" path="res://assets/Buttons.png" id="1_gik6v"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cm2ltobag34ge" path="res://assets/blacksand2.png" id="7_lsxip"]
 [ext_resource type="Texture2D" uid="uid://g8ks3qv5oort" path="res://assets/sand3.png" id="8_m6dn2"]
 [ext_resource type="Texture2D" uid="uid://dnl1wqxpxy1d7" path="res://assets/blacksand3.png" id="9_oridf"]
+[ext_resource type="AudioStream" uid="uid://8t2w1ioef6ho" path="res://sounds/sand.mp3" id="11_cos5i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gik6v"]
 bg_color = Color(1, 0.88235295, 0.69411767, 0.38039216)
@@ -129,6 +130,9 @@ texture = ExtResource("9_oridf")
 
 [node name="Squaretankoutline" type="Sprite2D" parent="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3/Squarewater3"]
 texture = ExtResource("5_uxkay")
+
+[node name="sand" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_cos5i")
 
 [connection signal="pressed" from="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]

@@ -10,6 +10,7 @@ const kelpRock = preload("res://scenes/decor/kelpRock_draggable.tscn")
 const biggerKelpRock = preload("res://scenes/decor/biggerKelpRock_draggable.tscn")
 var stars = preload("res://scenes/decor/star_draggable.tscn")
 var spawned = false
+@onready var bubbleSounds = $"../bubble"
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	return true
@@ -71,36 +72,43 @@ func _on_area_entered(area: Area2D) -> void:
 		spawnStars()
 	
 func spawnCoralRock():
+	bubbleSounds.play()
 	var coralRock_instance = coralRock.instantiate()
 	coralRock_instance.position = (Vector2i(330, 390))
 	add_child(coralRock_instance)
 	
 func spawnCoral():
+	bubbleSounds.play()
 	var coral_instance = coral.instantiate()
 	coral_instance.position = (Vector2i(330, 390))
 	add_child(coral_instance)
 	
 func spawnPinkRock():
+	bubbleSounds.play()
 	var pinkRock_instance = pinkRock.instantiate()
 	pinkRock_instance.position = (Vector2i(330, 390))
 	add_child(pinkRock_instance)
 	
 func spawnKelp():
+	bubbleSounds.play()
 	var kelp_instance = kelp.instantiate()
 	kelp_instance.position = (Vector2i(330, 390))
 	add_child(kelp_instance)
 	
 func spawnKelpRock():
+	bubbleSounds.play()
 	var kelpRock_instance = kelpRock.instantiate()
 	kelpRock_instance.position = (Vector2i(330, 390))
 	add_child(kelpRock_instance)
 	
 func spawnBiggerKelpRock():
+	bubbleSounds.play()
 	var biggerKelpRock_instance = biggerKelpRock.instantiate()
 	biggerKelpRock_instance.position = (Vector2i(330, 390))
 	add_child(biggerKelpRock_instance)
 
 func spawnStars():
+	bubbleSounds.play()
 	var stars_instance = stars.instantiate()
 	stars_instance.position = (Vector2i(330, 390))
 	add_child(stars_instance)

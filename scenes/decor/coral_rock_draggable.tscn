@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cro7j53u2lo16"]
+[gd_scene load_steps=5 format=3 uid="uid://cro7j53u2lo16"]
 
 [ext_resource type="Texture2D" uid="uid://c6aml3n8i8q3g" path="res://assets/coralandrock.png" id="1_nyu3s"]
 [ext_resource type="Script" uid="uid://juvverusicyj" path="res://obj.gd" id="2_h5aqu"]
+[ext_resource type="AudioStream" uid="uid://7uli7bkknb1r" path="res://sounds/bubblePop2.mp3" id="3_h5aqu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bop02"]
 atlas = ExtResource("1_nyu3s")
@@ -19,6 +20,10 @@ offset_left = -64.0
 offset_top = -48.0
 offset_right = 64.0
 offset_bottom = 48.0
+
+[node name="trash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_h5aqu")
+volume_db = -25.0
 
 [connection signal="button_down" from="obj/Button" to="obj" method="_on_button_button_down"]
 [connection signal="button_up" from="obj/Button" to="obj" method="_on_button_button_up"]

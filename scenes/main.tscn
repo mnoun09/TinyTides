@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b056onf7c73qf"]
+[gd_scene load_steps=22 format=3 uid="uid://b056onf7c73qf"]
 
 [ext_resource type="PackedScene" uid="uid://dulsb2ji0shqt" path="res://scenes/side_menu.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://cvsu7eoue2pyy" path="res://scenes/main.gd" id="1_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://b6k0beh5qh1oq" path="res://scenes/squaretank.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bu8gh7lijx58i" path="res://drag_test.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://kqpbxcps0ifa" path="res://scenes/sand_type.tscn" id="4_jyhfs"]
@@ -8,18 +9,98 @@
 [ext_resource type="PackedScene" uid="uid://ix8rqonb8hcv" path="res://scenes/trash.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://c8c5427kvsjwv" path="res://scenes/rotateccw.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://c1rbht5ke1qbd" path="res://scenes/flip.tscn" id="8_tipki"]
+[ext_resource type="AudioStream" uid="uid://bq5nvkmghgvwy" path="res://sounds/bubblePop.mp3" id="9_85g3d"]
+[ext_resource type="AudioStream" uid="uid://bvq8e1oacc2cd" path="res://sounds/calmingMusic.mp3" id="10_choun"]
+[ext_resource type="Texture2D" uid="uid://c0taeme6m3o6u" path="res://assets/buttons/Unpressed.png" id="12_trceg"]
+[ext_resource type="Texture2D" uid="uid://dniowxb6q1f27" path="res://assets/buttons/Pressed.png" id="13_a8y0u"]
+
+[sub_resource type="Animation" id="Animation_ya4ey"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eb6dy"]
+resource_name = "cameraAnimation"
+length = 1.25
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(640, 360), Vector2(384, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eb6dy"]
+_data = {
+&"RESET": SubResource("Animation_ya4ey"),
+&"cameraAnimation": SubResource("Animation_eb6dy")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkv2x"]
+atlas = ExtResource("12_trceg")
+region = Rect2(750, 649, 49, 47)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jbj1t"]
+texture = SubResource("AtlasTexture_jkv2x")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muem4"]
+atlas = ExtResource("13_a8y0u")
+region = Rect2(750, 649, 49, 47)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dp3eg"]
+texture = SubResource("AtlasTexture_muem4")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ld40"]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_ya4ey")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1280, 720)
+offset_left = -808.0
 offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0.7490196, 0.9607843, 0.9843137, 1)
-
-[node name="trash" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(64, 664)
-scale = Vector2(0.7, 0.7)
 
 [node name="SideMenu" parent="." instance=ExtResource("1_o5qli")]
 custom_minimum_size = Vector2(500, 720)
@@ -43,17 +124,55 @@ position = Vector2(160, 184)
 [node name="sandType" parent="." instance=ExtResource("4_jyhfs")]
 visible = false
 
+[node name="trash" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(64, 664)
+scale = Vector2(0.7, 0.7)
+
 [node name="rotate" parent="." instance=ExtResource("6_o6xl0")]
-position = Vector2(32, 32)
+position = Vector2(16, 32)
+scale = Vector2(0.8, 0.8)
 
 [node name="rotateccw" parent="." instance=ExtResource("7_o6xl0")]
-position = Vector2(24, 192)
+position = Vector2(24, 256)
+scale = Vector2(0.8, 0.8)
 
 [node name="flip" parent="." instance=ExtResource("8_tipki")]
-position = Vector2(24, 408)
+position = Vector2(16, 144)
+scale = Vector2(0.8, 0.8)
+
+[node name="bubble" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_85g3d")
+volume_db = -20.0
+
+[node name="CalmingMusic" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(640, 344)
+stream = ExtResource("10_choun")
+volume_db = -10.0
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_eb6dy")
+}
+
+[node name="done" type="Button" parent="."]
+offset_left = 680.0
+offset_top = 616.0
+offset_right = 2440.002
+offset_bottom = 2360.999
+scale = Vector2(0.05, 0.05)
+theme_override_styles/normal = SubResource("StyleBoxTexture_jbj1t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dp3eg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dp3eg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0ld40")
+toggle_mode = true
 
 [connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button" to="Squaretank" method="_on_button_pressed"]
 [connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button2" to="Squaretank" method="_on_button_2_pressed"]
 [connection signal="pressed" from="sandType/MarginContainer/MarginContainer/NinePatchRect/HBoxContainer/Button3" to="Squaretank" method="_on_button_3_pressed"]
+[connection signal="pressed" from="done" to="." method="_on_done_pressed"]
 
 [editable path="sandType"]

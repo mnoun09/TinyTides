@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7htnmywg7wtr"]
+[gd_scene load_steps=5 format=3 uid="uid://c7htnmywg7wtr"]
 
 [ext_resource type="Texture2D" uid="uid://h3yx6ccwytug" path="res://assets/kelp.png" id="1_jjryj"]
 [ext_resource type="Script" uid="uid://juvverusicyj" path="res://obj.gd" id="2_s606h"]
+[ext_resource type="AudioStream" uid="uid://7uli7bkknb1r" path="res://sounds/bubblePop2.mp3" id="3_s606h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s606h"]
 atlas = ExtResource("1_jjryj")
@@ -25,6 +26,10 @@ offset_bottom = 56.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 scale = Vector2(1.3, 1.3)
 polygon = PackedVector2Array(-9.5, -54.5, -20.5, -35, -20.5, -32.5, -26.5, -32.5, -30.5, -27.5, -32.5, -27.5, -32.5, -10.5, -34.5, -9, -34.5, 8.5, -16.4, 28.5, -7.5, 49, -7.5, 51.5, -3.5, 54.5, 14, 54.5, 15.5, 52.5, 17, 52.5, 24.5, 25.800003, 24.5, 22.199997, 34.4, 10.5, 34.5, -10, 30.5, -12.599998, 30.5, -15.200001, 20, -12.099998, 23.2, -28.5, 25.5, -28.5, 22.5, -36, 22.5, -38.6, 15.099998, -43.5, 11, -43.5, 10.5, -45.5, 10.5, -49.3, 5.5, -54.3)
+
+[node name="trash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_s606h")
+volume_db = -25.0
 
 [connection signal="button_down" from="obj/Button" to="obj" method="_on_button_button_down"]
 [connection signal="button_up" from="obj/Button" to="obj" method="_on_button_button_up"]

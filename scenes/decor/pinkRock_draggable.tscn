@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6b3gy3070y6n"]
+[gd_scene load_steps=5 format=3 uid="uid://b6b3gy3070y6n"]
 
 [ext_resource type="Texture2D" uid="uid://c24uif2j3612h" path="res://assets/pinkrock.png" id="1_7qfp1"]
 [ext_resource type="Script" uid="uid://juvverusicyj" path="res://obj.gd" id="2_lmhvq"]
+[ext_resource type="AudioStream" uid="uid://7uli7bkknb1r" path="res://sounds/bubblePop2.mp3" id="3_lmhvq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lmhvq"]
 atlas = ExtResource("1_7qfp1")
@@ -19,6 +20,10 @@ offset_left = -48.0
 offset_top = -24.0
 offset_right = 48.0
 offset_bottom = 24.0
+
+[node name="trash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lmhvq")
+volume_db = -25.0
 
 [connection signal="button_down" from="obj/Button" to="obj" method="_on_button_button_down"]
 [connection signal="button_up" from="obj/Button" to="obj" method="_on_button_button_up"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://djww0na3e4tek"]
+[gd_scene load_steps=5 format=3 uid="uid://djww0na3e4tek"]
 
 [ext_resource type="Texture2D" uid="uid://bln3np5qomj3" path="res://scenes/decor/kelpRock1.png" id="1_a6lpr"]
+[ext_resource type="AudioStream" uid="uid://7uli7bkknb1r" path="res://sounds/bubblePop2.mp3" id="3_vv5o8"]
 [ext_resource type="Script" uid="uid://juvverusicyj" path="res://obj.gd" id="5_10s01"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b30mt"]
@@ -23,6 +24,10 @@ offset_bottom = 46.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-512, -152)
 polygon = PackedVector2Array(505, 92.70001, 505, 94.899994, 495.40002, 102, 493.59998, 102, 487, 118.600006, 484.19995, 119, 478.19995, 125, 475.80005, 125, 478, 153.20001, 478, 157.59998, 494.30005, 181, 490.69995, 189, 488.69995, 189, 490, 199.20001, 490, 202.20001, 499, 207.09998, 499, 209, 516.4, 209, 526.4, 205, 529.1, 205, 536.1, 194, 538.4, 194, 537, 186.59998, 537, 182.90002, 531, 178.90002, 542.19995, 156, 544, 156, 544, 145.29999, 538.5, 138.70001, 542.4, 127, 544.6, 127, 542, 117, 542, 114.100006, 532.80005, 106, 523.4, 106, 522, 102.5, 522, 100, 517, 96, 517, 94.20001)
+
+[node name="trash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vv5o8")
+volume_db = -25.0
 
 [connection signal="button_down" from="obj/Button" to="obj" method="_on_button_button_down"]
 [connection signal="button_up" from="obj/Button" to="obj" method="_on_button_button_up"]

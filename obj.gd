@@ -3,8 +3,11 @@ var dragging = false
 var offSet = Vector2i.ZERO
 var rotating = false
 var rotationSpeed = 0.9
+@onready var trashSound = $"../trash"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	pass # Replace with function body.
 
 
@@ -22,6 +25,7 @@ func _on_button_button_down() -> void:
 	if global.remove:
 		print ("remove")
 		queue_free()
+		trashSound.play()
 	elif global.rotate:
 		print ("rotate")
 		rotating = true

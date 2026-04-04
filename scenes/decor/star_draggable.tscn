@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://4cwbijtd8ckm"]
+[gd_scene load_steps=5 format=3 uid="uid://4cwbijtd8ckm"]
 
 [ext_resource type="Texture2D" uid="uid://ctujvs6cotrek" path="res://scenes/decor/stars.png" id="1_57d73"]
 [ext_resource type="Script" uid="uid://juvverusicyj" path="res://obj.gd" id="2_xfni2"]
+[ext_resource type="AudioStream" uid="uid://7uli7bkknb1r" path="res://sounds/bubblePop2.mp3" id="3_xfni2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57d73"]
 atlas = ExtResource("1_57d73")
@@ -19,6 +20,10 @@ offset_left = -48.0
 offset_top = -40.0
 offset_right = 48.0
 offset_bottom = 40.0
+
+[node name="trash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xfni2")
+volume_db = -25.0
 
 [connection signal="button_down" from="obj/Button" to="obj" method="_on_button_button_down"]
 [connection signal="button_up" from="obj/Button" to="obj" method="_on_button_button_up"]

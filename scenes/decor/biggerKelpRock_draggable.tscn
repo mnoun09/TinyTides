@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://coe6fbkl2vrwh"]
+[gd_scene load_steps=5 format=3 uid="uid://coe6fbkl2vrwh"]
 
 [ext_resource type="Script" uid="uid://juvverusicyj" path="res://obj.gd" id="1_y4khi"]
+[ext_resource type="AudioStream" uid="uid://7uli7bkknb1r" path="res://sounds/bubblePop2.mp3" id="3_dotl4"]
 [ext_resource type="Texture2D" uid="uid://dphd3krphnl78" path="res://scenes/decor/biggerKelpRock3.png" id="5_gcce1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4khi"]
@@ -19,6 +20,10 @@ offset_left = -56.0
 offset_top = -88.0
 offset_right = 59.0
 offset_bottom = 46.0
+
+[node name="trash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_dotl4")
+volume_db = -25.0
 
 [connection signal="button_down" from="obj/Button" to="obj" method="_on_button_button_down"]
 [connection signal="button_up" from="obj/Button" to="obj" method="_on_button_button_up"]
